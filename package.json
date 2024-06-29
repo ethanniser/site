@@ -15,8 +15,10 @@
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.13",
     "astro": "^4.11.3",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.2"
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
 }

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Berkeley Mono Trial";
+  src: url("/src/assets/fonts/BerkeleyMonoTrial-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.rotate-container {
+  transform: skewY(-5deg);
+  overflow: hidden;
+  position: relative;
+}
+
+.rotate-text {
+  display: inline-block;
+  transform: skewY(5deg);
+  transition: transform 0.3s;
+}
+
+.rotate-container:hover .rotate-text {
+  transform: skewY(10deg);
+}
+
+.rotate-container:hover {
+  background-color: white;
+  color: black;
+}
