@@ -6,9 +6,10 @@ import HeaderLink from "./HeaderLink.astro";
 <nav class="flex flex-col items-start gap-y-2">
   <a href="/"><h1 class="font-bold text-2xl">{Constants.SITE_TITLE}</h1></a>
   <div class="py-2"></div>
-  <HeaderLink href={Constants.TWITTER_LINK} text="Twitter" />
-  <HeaderLink href={Constants.GITHUB_LINK} text="GitHub" />
-  <HeaderLink href={Constants.YOUTUBE_LINK} text="YouTube" />
-  <HeaderLink href={Constants.LINKEDIN_LINK} text="LinkedIn" />
-  <HeaderLink href={Constants.EMAIL_LINK} text="Email" />
+  <HeaderLink href={Constants.TWITTER_LINK}>Twitter</HeaderLink>
+  <HeaderLink href={Constants.GITHUB_LINK}>GitHub</HeaderLink>
+  <HeaderLink href={Constants.YOUTUBE_LINK}>YouTube</HeaderLink>
+  <HeaderLink href={Constants.LINKEDIN_LINK}>LinkedIn</HeaderLink>
+  <HeaderLink href={Constants.EMAIL_LINK}>Email</HeaderLink>
+  <HeaderLink href="/rss.xml">RSS</HeaderLink>
 </nav>

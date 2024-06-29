@@ -3,14 +3,13 @@ import type { HTMLAttributes } from "astro/types";
 
 type Props = {
   href: HTMLAttributes<"a">["href"];
-  text: string;
 };
 
-const { href, text } = Astro.props;
+const { href } = Astro.props;
 ---
 
 <a
   {href}
   class="text-white bg-black hover:bg-white hover:text-black transition rotate-container ease-out duration-300 hover:animate-pulse"
-  ><h3 class="rotate-text p-[0.1rem]">{text}</h3></a
+  ><h3 class="rotate-text p-[0.1rem]"><slot /></h3></a
 >
