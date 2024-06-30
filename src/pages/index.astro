@@ -1,7 +1,16 @@
 ---
+import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
+import { getEntry } from "astro:content";
+
+const md = await getEntry("pages", "index");
+const { Content } = await md.render();
 ---
 
 <Page>
-  <h1>Todo</h1>
+  <Main title="Home">
+    <article class="prose">
+      <Content />
+    </article>
+  </Main>
 </Page>
