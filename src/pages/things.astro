@@ -1,8 +1,9 @@
 ---
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
+import { SITE_TITLE } from "@/consts";
 ---
 
-<Page>
+<Page title={`Things | ${SITE_TITLE}`}>
   <Main title="Things" />
 </Page>

@@ -1,9 +1,10 @@
 ---
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
+import { SITE_TITLE } from "@/consts";
 ---
 
-<Page title="404 - Page Not Found">
+<Page title={`Page Not Found | ${SITE_TITLE}`}>
   <Main title="404 - Page Not Found">
     <a href="/">
       <p class="hover:underline">Go home</p>
