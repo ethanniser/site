@@ -5,6 +5,7 @@ import VerticleHeader from "@/components/VerticleHeader.astro";
 import "../styles/global.css";
 import * as Constants from "@/consts";
 import Footer from "@/components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -60,6 +61,7 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <ViewTransitions />
   </head>
 
   <body class="flex flex-col min-h-screen w-full p-10">

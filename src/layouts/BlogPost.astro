@@ -10,7 +10,9 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <Page title={`${title} | ${SITE_TITLE} | Blog`} description={description}>
-  <h1 class="font-bold text-4xl">{title}</h1>
+  <h1 class="font-bold text-4xl">
+    <span transition:name={title}>{title}</span>
+  </h1>
   <div class="py-1"></div>
   <FormattedDate date={pubDate} />
   {
