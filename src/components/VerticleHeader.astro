@@ -1,6 +1,7 @@
 ---
 import * as Constants from "@/consts";
-import HeaderLink from "./HeaderLink.astro";
+import HeaderExternalLink from "./HeaderExternalLink.astro";
+import HeaderInternalLink from "./HeaderInternalLink.astro";
 
 function getRandomJSKeyword() {
   const randomIndex = Math.floor(Math.random() * Constants.JS_KEYWORDS.length);
@@ -11,11 +12,18 @@ function getRandomJSKeyword() {
 <nav class="flex flex-col items-start gap-y-2">
   <a href="/"><h1 class="font-bold text-2xl">{Constants.SITE_TITLE}</h1></a>
   <h2 class="italic text-center">{getRandomJSKeyword()}</h2>
+  <div class="py-1"></div>
+  <HeaderInternalLink href="/blog">Blog</HeaderInternalLink>
+  <HeaderInternalLink href="/about">About</HeaderInternalLink>
+  <HeaderInternalLink href="/projects">Projects</HeaderInternalLink>
+  <HeaderInternalLink href="/things">Things</HeaderInternalLink>
   <div class="py-2"></div>
-  <HeaderLink href={Constants.TWITTER_LINK}>Twitter</HeaderLink>
-  <HeaderLink href={Constants.GITHUB_LINK}>GitHub</HeaderLink>
-  <HeaderLink href={Constants.YOUTUBE_LINK}>YouTube</HeaderLink>
-  <HeaderLink href={Constants.LINKEDIN_LINK}>LinkedIn</HeaderLink>
-  <HeaderLink href={Constants.EMAIL_LINK}>Email</HeaderLink>
-  <HeaderLink href="/rss.xml">RSS</HeaderLink>
+  <HeaderExternalLink href={Constants.TWITTER_LINK}>Twitter</HeaderExternalLink>
+  <HeaderExternalLink href={Constants.GITHUB_LINK}>GitHub</HeaderExternalLink>
+  <HeaderExternalLink href={Constants.YOUTUBE_LINK}>YouTube</HeaderExternalLink>
+  <HeaderExternalLink href={Constants.LINKEDIN_LINK}
+    >LinkedIn</HeaderExternalLink
+  >
+  <HeaderExternalLink href={Constants.EMAIL_LINK}>Email</HeaderExternalLink>
+  <HeaderExternalLink href="/rss.xml">RSS</HeaderExternalLink>
 </nav>
