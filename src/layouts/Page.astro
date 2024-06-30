@@ -8,9 +8,9 @@ import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
+  title?: string | undefined;
+  description?: string | undefined;
+  image?: string | undefined;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
