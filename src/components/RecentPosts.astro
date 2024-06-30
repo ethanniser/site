@@ -1,20 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-import BlogPostCard from "@/components/BlogPostCard.astro";
-
-const posts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+import BlogPostList from "./BlogPostList.astro";
 ---
 
 <div class="not-prose text-black">
-  <ul class="flex flex-col gap-y-2 items-start">
-    {
-      posts.map((post) => (
-        <li>
-          <BlogPostCard {...post} />
-        </li>
-      ))
-    }
-  </ul>
+  <BlogPostList limit={3} />
 </div>

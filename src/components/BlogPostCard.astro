@@ -12,21 +12,44 @@ const {
 
 <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
   <div
-    class="border border-black border-dashed rounded-md p-3 min-w-96 max-w-96 text-wrap"
+    class="border border-black border-dashed rounded-md min-w-96 max-w-96"
+    id="foo"
   >
-    <h4 class="font-bold text-lg">
-      <span transition:name={title}>{title}</span>
-    </h4>
-    <p>
-      <span transition:name={`${title} ${pubDate}`}>
-        <FormattedDate date={pubDate} />
-      </span>
-    </p>
+    <div class="w-full h-full p-3">
+      <h4 class="font-bold text-lg text-wrap">
+        <span transition:name={title}>{title}</span>
+      </h4>
+      <div class="py-1"></div>
+      <p class="text-sm italic">
+        <span transition:name={`${title} ${pubDate}`}>
+          <FormattedDate date={pubDate} />
+        </span>
+      </p>
+    </div>
   </div>
 </a>
 
 <style>
-  div {
+  #foo {
+    position: relative; /* Ensure the div is positioned relative for the ::after pseudo-element to be correctly positioned */
+    background-color: white; /* Add this line to set a solid background color */
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>');
+    z-index: 0;
+  }
+
+  span {
+    background-color: white;
+    padding: 0.125rem;
+  }
+
+  #foo::after {
+    content: "";
+    position: absolute;
+    top: 10px; /* Adjust the offset to your liking */
+    left: 10px; /* Adjust the offset to your liking */
+    width: 100%;
+    height: 100%;
     background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>');
+    z-index: -1; /* Send the pseudo-element behind the main div */
   }
 </style>
