@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Page from "@/layouts/Page.astro";
+import Main from "@/components/Main.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -9,11 +10,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Page>
-  <h1 class="font-bold text-3xl">Blog</h1>
-  <div class="py-2"></div>
-  <hr />
-  <div class="py-2"></div>
-  <section>
+  <Main title="Blog">
     <ul class="flex flex-col gap-y-2">
       {
         posts.map((post) => (
@@ -28,5 +25,5 @@ const posts = (await getCollection("blog")).sort(
         ))
       }
     </ul>
-  </section>
+  </Main>
 </Page>
