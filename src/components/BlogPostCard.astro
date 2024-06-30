@@ -11,10 +11,7 @@ const {
 ---
 
 <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
-  <div
-    class="border border-black border-dashed rounded-md min-w-96 max-w-96"
-    id="foo"
-  >
+  <div class="border-2 border-black rounded-md min-w-96 max-w-96" id="foo">
     <div class="w-full h-full p-3">
       <h4 class="font-bold text-lg text-wrap">
         <span transition:name={title}>{title}</span>
@@ -51,5 +48,11 @@ const {
     height: 100%;
     background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>');
     z-index: -1; /* Send the pseudo-element behind the main div */
+    border-radius: 0.375rem;
+  }
+
+  #foo:hover::after {
+    top: -10px; /* Move to the bottom left by adjusting top to negative */
+    left: 10px; /* Move to the top right by adjusting left to negative */
   }
 </style>
