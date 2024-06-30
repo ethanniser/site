@@ -1,28 +1,21 @@
 ---
 import { getCollection } from "astro:content";
-import FormattedDate from "@/components/FormattedDate.astro";
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
+import BlogPostCard from "@/components/BlogPostCard.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
 <Page>
   <Main title="Blog">
-    <ul class="flex flex-col gap-y-2">
+    <ul class="flex flex-col gap-y-2 items-start">
       {
         posts.map((post) => (
           <li>
-            <a href={`/blog/${post.slug}/`}>
-              <h4 class="font-bold text-xl">
-                <span transition:name={post.data.title}>{post.data.title}</span>
-              </h4>
-              <p>
-                <FormattedDate date={post.data.pubDate} />
-              </p>
-            </a>
+            <BlogPostCard {...post} />
           </li>
         ))
       }

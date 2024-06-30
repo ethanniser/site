@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">;
+
+const {
+  data: { title, pubDate, tags },
+  slug,
+} = Astro.props;
+---
+
+<a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
+  <div
+    class="border border-black border-dashed rounded-md p-3 min-w-96 max-w-96 text-wrap"
+  >
+    <h4 class="font-bold text-lg">
+      <span transition:name={title}>{title}</span>
+    </h4>
+    <p>
+      <span transition:name={`${title} ${pubDate}`}>
+        <FormattedDate date={pubDate} />
+      </span>
+    </p>
+  </div>
+</a>
+
+<style>
+  div {
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>');
+  }
+</style>

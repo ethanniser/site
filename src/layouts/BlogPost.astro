@@ -14,7 +14,9 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <span transition:name={title}>{title}</span>
   </h1>
   <div class="py-1"></div>
-  <FormattedDate date={pubDate} />
+  <span transition:name={`${title} ${pubDate}`}>
+    <FormattedDate date={pubDate} />
+  </span>
   {
     updatedDate && (
       <div class="last-updated-on">
