@@ -26,13 +26,19 @@ const postPerTag = posts.flatMap(
   (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? []
 );
 const groupedPosts = groupBy(postPerTag, (_) => _.tag);
+// sort alphabetically
+const sorted = Object.entries(groupedPosts).sort((a, b) => {
+  const [tagA] = a;
+  const [tagB] = b;
+  return tagA.localeCompare(tagB);
+});
 ---
 
 <Page>
   <Main title="Blog - Tags">
     <div class="flex flex-col gap-y-3">
       {
-        Object.entries(groupedPosts).map(([tag, posts]) => (
+        sorted.map(([tag, posts]) => (
           <a href={`/blog/tags/${tag}`}>
             <h2 class="text-xl md:hover:underline md:no-underline underline">{`${tag} (${posts?.length})`}</h2>
           </a>
