@@ -3,11 +3,29 @@ import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
 import { getCollection } from "astro:content";
 
+function groupBy<K extends PropertyKey, T>(
+  items: Iterable<T>,
+  keySelector: (item: T, index: number) => K
+): Partial<Record<K, T[]>> {
+  return [...items].reduce(
+    (result, item, index) => {
+      const key = keySelector(item, index);
+      if (result[key]) {
+        result[key]!.push(item);
+      } else {
+        result[key] = [item];
+      }
+      return result;
+    },
+    {} as Partial<Record<K, T[]>>
+  );
+}
+
 const posts = await getCollection("blog");
 const postPerTag = posts.flatMap(
   (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? []
 );
-const groupedPosts = Object.groupBy(postPerTag, (_) => _.tag);
+const groupedPosts = groupBy(postPerTag, (_) => _.tag);
 ---
 
 <Page>
