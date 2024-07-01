@@ -1,0 +1,25 @@
+---
+import Page from "@/layouts/Page.astro";
+import Main from "@/components/Main.astro";
+import BlogPostList from "@/components/BlogPostList.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const allTagsDup = posts
+    .flatMap((post) => post.data.tags)
+    .filter((tag): tag is string => !!tag);
+  const allTags = [...new Set(allTagsDup)];
+  return allTags.map((tag) => ({
+    params: { tag },
+  }));
+}
+
+const { tag } = Astro.params;
+---
+
+<Page>
+  <Main title={`Blog | ${tag}`}>
+    <BlogPostList tag={tag} />
+  </Main>
+</Page>

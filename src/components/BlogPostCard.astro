@@ -11,24 +11,24 @@ const {
 } = Astro.props;
 ---
 
-<a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
-  <div class="border-2 border-black rounded-md min-w-96 max-w-96" id="outer">
-    <div class="w-full h-full p-3 flex flex-col items-start" id="inner">
-      <h4 class="font-bold text-lg text-wrap">
+<div class="border-2 border-black rounded-md min-w-96 max-w-96" id="outer">
+  <div class="w-full h-full p-3 flex flex-col items-start" id="inner">
+    <h4 class="font-bold text-lg text-wrap">
+      <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
         <span class="blur-target" transition:name={title}>{title}</span>
-      </h4>
-      <div class="py-1"></div>
-      <div class="flex flex-row justify-between items-center w-full">
-        <p class="text-sm italic">
-          <span class="blur-target" transition:name={`${title} ${pubDate}`}>
-            <FormattedDate date={pubDate} />
-          </span>
-        </p>
-        <TagRow tags={tags} />
-      </div>
+      </a>
+    </h4>
+    <div class="py-1"></div>
+    <div class="flex flex-row justify-between items-center w-full">
+      <p class="text-sm italic">
+        <span class="blur-target" transition:name={`${title} ${pubDate}`}>
+          <FormattedDate date={pubDate} />
+        </span>
+      </p>
+      <TagRow tags={tags} articleName={title} />
     </div>
   </div>
-</a>
+</div>
 
 <style>
   #outer {

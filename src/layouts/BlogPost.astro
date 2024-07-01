@@ -29,7 +29,7 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
     )
   }
   <div class="py-1"></div>
-  <TagRow tags={tags} />
+  <TagRow tags={tags} articleName={title} />
   <div class="py-3"></div>
   <hr />
   <div class="py-3"></div>

@@ -2,13 +2,10 @@
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
 import BlogPostList from "@/components/BlogPostList.astro";
-
-const params = Astro.url.searchParams;
-const tag = params.get("tag");
 ---
 
 <Page>
-  <Main title={tag ? `Blog | ${tag}` : "Blog"}>
-    <BlogPostList tag={tag} />
+  <Main title="Blog">
+    <BlogPostList />
   </Main>
 </Page>
