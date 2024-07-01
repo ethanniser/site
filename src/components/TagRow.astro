@@ -4,12 +4,13 @@ import type { CollectionEntry } from "astro:content";
 type Props = {
   tags: CollectionEntry<"blog">["data"]["tags"];
   articleName: string;
+  class?: string;
 };
 
-const { tags, articleName } = Astro.props;
+const { tags, articleName, class: className } = Astro.props;
 ---
 
-<div>
+<div class={className}>
   {
     tags?.map((tag) => (
       <a href={`/blog/tags/${tag}`}>
