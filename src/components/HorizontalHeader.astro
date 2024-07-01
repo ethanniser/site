@@ -1,0 +1,39 @@
+---
+import * as Constants from "@/consts";
+import HeaderExternalLink from "./HeaderExternalLink.astro";
+import HeaderInternalLink from "./HeaderInternalLink.astro";
+
+function getRandomJSKeyword() {
+  const randomIndex = Math.floor(Math.random() * Constants.JS_KEYWORDS.length);
+  return Constants.JS_KEYWORDS[randomIndex] ?? "JavaScript";
+}
+---
+
+<nav>
+  <div class="flex flex-row justify-between gap-y-2">
+    <div class="flex flex-col items-start">
+      <a href="/"><h1 class="font-bold text-2xl">{Constants.SITE_TITLE}</h1></a>
+      <h2 class="italic text-center">{getRandomJSKeyword()}</h2>
+    </div>
+    <div>
+      <HeaderInternalLink href="/blog">Blog</HeaderInternalLink>
+      <HeaderInternalLink href="/projects">Projects</HeaderInternalLink>
+      <HeaderInternalLink href="/things">Things</HeaderInternalLink>
+    </div>
+  </div>
+  <div class="py-2"></div>
+  <div class="flex flex-row justify-evenly gap-x-1">
+    <HeaderExternalLink href={Constants.TWITTER_LINK}
+      >Twitter</HeaderExternalLink
+    >
+    <HeaderExternalLink href={Constants.GITHUB_LINK}>GitHub</HeaderExternalLink>
+    <HeaderExternalLink href={Constants.YOUTUBE_LINK}
+      >YouTube</HeaderExternalLink
+    >
+    <HeaderExternalLink href={Constants.LINKEDIN_LINK}
+      >LinkedIn</HeaderExternalLink
+    >
+    <HeaderExternalLink href={Constants.EMAIL_LINK}>Email</HeaderExternalLink>
+    <HeaderExternalLink href="/rss.xml">RSS</HeaderExternalLink>
+  </div>
+</nav>

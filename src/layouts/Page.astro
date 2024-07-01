@@ -6,6 +6,7 @@ import "../styles/global.css";
 import * as Constants from "@/consts";
 import Footer from "@/components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import HorizontalHeader from "@/components/HorizontalHeader.astro";
 
 interface Props {
   title?: string | undefined;
@@ -64,15 +65,10 @@ const {
     <ViewTransitions />
   </head>
 
-  <body class="flex flex-col min-h-screen w-full p-10">
-    <div class="flex flex-grow">
-      <aside class="w-1/4">
-        <VerticleHeader />
-      </aside>
-      <main class="w-3/4 max-w-2xl">
-        <slot />
-      </main>
-    </div>
+  <body class="flex flex-col min-h-screen w-full p-4">
+    <HorizontalHeader />
+    <div class="py-3"></div>
+    <slot />
     <div class="py-5"></div>
     <Footer />
   </body>

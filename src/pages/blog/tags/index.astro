@@ -17,7 +17,7 @@ const groupedPosts = Object.groupBy(postPerTag, (_) => _.tag);
       {
         Object.entries(groupedPosts).map(([tag, posts]) => (
           <a href={`/blog/tags/${tag}`}>
-            <h2 class="text-xl hover:underline">{`${tag} (${posts?.length})`}</h2>
+            <h2 class="text-xl md:hover:underline underline">{`${tag} (${posts?.length})`}</h2>
           </a>
         ))
       }
