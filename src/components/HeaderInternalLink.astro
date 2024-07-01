@@ -9,5 +9,7 @@ const { href } = Astro.props;
 ---
 
 <a {href}>
-  <h2 class="md:hover:underline underline"><slot /></h2>
+  <h2 class="md:hover:underline md:no-underline underline">
+    <slot />
+  </h2>
 </a>
