@@ -22,7 +22,7 @@ const slicedPosts = limit ? filteredPosts.slice(0, limit) : filteredPosts;
   {
     slicedPosts.map((post) => (
       <li class="w-full max-w-96">
-        <BlogPostCard {...post} />
+        <BlogPostCard {post} highlight={tag} />
       </li>
     ))
   }

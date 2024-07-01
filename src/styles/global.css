@@ -51,11 +51,6 @@
   filter: blur(0.5em);
 }
 
-.blur-target-no-hover {
-  position: relative;
-  display: inline-block; /* Ensure each line is contained */
-}
-
 .blur-target-no-hover::before {
   content: "";
   position: absolute;

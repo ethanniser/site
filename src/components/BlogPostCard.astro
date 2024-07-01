@@ -3,11 +3,17 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import TagRow from "./TagRow.astro";
 
-type Props = CollectionEntry<"blog">;
+type Props = {
+  post: CollectionEntry<"blog">;
+  highlight?: string | null | undefined;
+};
 
 const {
-  data: { title, pubDate, tags },
-  slug,
+  post: {
+    data: { title, pubDate, tags },
+    slug,
+  },
+  highlight,
 } = Astro.props;
 ---
 
@@ -27,7 +33,12 @@ const {
       </div>
     </div>
   </a>
-  <TagRow tags={tags} articleName={title} class="absolute bottom-2 right-2" />
+  <TagRow
+    tags={tags}
+    articleName={title}
+    class="absolute bottom-2 right-2"
+    highlight={highlight}
+  />
 </div>
 
 <style>

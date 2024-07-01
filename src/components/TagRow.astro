@@ -5,9 +5,10 @@ type Props = {
   tags: CollectionEntry<"blog">["data"]["tags"];
   articleName: string;
   class?: string;
+  highlight?: string | undefined | null;
 };
 
-const { tags, articleName, class: className } = Astro.props;
+const { tags, articleName, class: className, highlight } = Astro.props;
 ---
 
 <div class={className}>
@@ -15,7 +16,9 @@ const { tags, articleName, class: className } = Astro.props;
     tags?.map((tag) => (
       <a href={`/blog/tags/${tag}`}>
         <p
-          class="text-sm blur-target-no-hover px-1 border border-black rounded-xl hover:bg-black hover:text-white"
+          class={`relative inline-block text-sm blur-target-no-hover px-1 border border-black rounded-xl hover:bg-black hover:text-white 
+              ${highlight === tag ? "ovveride" : ""}
+            `}
           transition:name={`${articleName} - tag -${tag}`}
         >
           {tag}
@@ -24,3 +27,16 @@ const { tags, articleName, class: className } = Astro.props;
     ))
   }
 </div>
+
+<style>
+  .ovveride {
+    background-color: black;
+    color: white;
+    filter: none;
+  }
+
+  .ovveride::before {
+    background-color: transparent;
+    filter: none;
+  }
+</style>
