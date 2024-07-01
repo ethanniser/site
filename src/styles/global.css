@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@view-transition {
-  navigation: auto;
-}
-
 @font-face {
   font-family: "Berkeley Mono Trial";
   src: url("/fonts/BerkeleyMonoTrial-Regular.woff") format("woff");
