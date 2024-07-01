@@ -3,10 +3,11 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Page from "./Page.astro";
 import { SITE_TITLE } from "@/consts";
+import TagRow from "@/components/TagRow.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, tags } = Astro.props;
 ---
 
 <Page title={`${title} | ${SITE_TITLE} | Blog`} description={description}>
@@ -19,11 +20,16 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   </span>
   {
     updatedDate && (
-      <div class="last-updated-on">
-        Last updated: <FormattedDate date={updatedDate} />
-      </div>
+      <>
+        <div class="py-1" />
+        <div class="last-updated-on">
+          Last updated: <FormattedDate date={updatedDate} />
+        </div>
+      </>
     )
   }
+  <div class="py-1"></div>
+  <TagRow tags={tags} />
   <div class="py-3"></div>
   <hr />
   <div class="py-3"></div>

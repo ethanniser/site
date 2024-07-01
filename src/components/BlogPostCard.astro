@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
+import TagRow from "./TagRow.astro";
 
 type Props = CollectionEntry<"blog">;
 
@@ -14,50 +15,47 @@ const {
   <div class="border-2 border-black rounded-md min-w-96 max-w-96" id="outer">
     <div class="w-full h-full p-3 flex flex-col items-start" id="inner">
       <h4 class="font-bold text-lg text-wrap">
-        <span transition:name={title}>{title}</span>
+        <span class="blur-target" transition:name={title}>{title}</span>
       </h4>
       <div class="py-1"></div>
-      <p class="text-sm italic">
-        <span transition:name={`${title} ${pubDate}`}>
-          <FormattedDate date={pubDate} />
-        </span>
-      </p>
+      <div class="flex flex-row justify-between items-center w-full">
+        <p class="text-sm italic">
+          <span class="blur-target" transition:name={`${title} ${pubDate}`}>
+            <FormattedDate date={pubDate} />
+          </span>
+        </p>
+        <TagRow tags={tags} />
+      </div>
     </div>
   </div>
 </a>
 
 <style>
   #outer {
-    position: relative; /* Ensure the div is positioned relative for the ::after pseudo-element to be correctly positioned */
+    position: relative;
   }
 
   #inner {
-    background-color: white; /* Add this line to set a solid background color */
-    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>');
-    position: relative; /* Ensure the div is positioned relative */
-    z-index: 10; /* Bring the child element above the ::after pseudo-element */
-  }
-
-  h4,
-  p {
     background-color: white;
-    padding: 0.125rem;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>');
+    position: relative;
+    z-index: 10;
   }
 
   #outer::after {
     content: "";
     position: absolute;
-    top: 10px; /* Adjust the offset to your liking */
-    left: 10px; /* Adjust the offset to your liking */
+    top: 10px;
+    left: 10px;
     width: 100%;
     height: 100%;
     background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>');
-    z-index: -1; /* Send the pseudo-element behind the main div */
+    z-index: -1;
     border-radius: 0.375rem;
     transition: top, 0.3s;
   }
 
   #outer:hover::after {
-    top: -0.5em; /* Move to the bottom left by adjusting top to negative */
+    top: -0.5em;
   }
 </style>

@@ -4,15 +4,19 @@ import BlogPostCard from "@/components/BlogPostCard.astro";
 
 type Props = {
   limit?: number;
+  tag?: string | null;
 };
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const { limit } = Astro.props;
+const { limit, tag } = Astro.props;
 
-const slicedPosts = limit ? posts.slice(0, limit) : posts;
+const filteredPosts = tag
+  ? posts.filter((post) => post.data.tags?.includes(tag))
+  : posts;
+const slicedPosts = limit ? filteredPosts.slice(0, limit) : posts;
 ---
 
 <ul class="flex flex-col gap-y-5 items-start">

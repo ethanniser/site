@@ -29,3 +29,47 @@
   background-color: white;
   color: black;
 }
+
+.blur-target {
+  position: relative;
+  display: inline-block; /* Ensure each line is contained */
+}
+
+.blur-target::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -1; /* Ensure the background is behind the text */
+  filter: blur(0.5em);
+}
+
+.blur-target-no-hover {
+  position: relative;
+  display: inline-block; /* Ensure each line is contained */
+}
+
+.blur-target-no-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -1; /* Ensure the background is behind the text */
+  filter: blur(0.5em);
+}
+
+.blur-target-no-hover:hover {
+  background-color: transparent;
+  filter: none;
+}
+
+.blur-target-no-hover:hover::before {
+  background-color: transparent;
+  filter: none;
+}

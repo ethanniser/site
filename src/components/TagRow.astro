@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  tags: CollectionEntry<"blog">["data"]["tags"];
+};
+
+const { tags } = Astro.props;
+---
+
+<div class="space-x-2">
+  {
+    tags?.map((tag) => (
+      <a
+        href={`/blog?tag=${tag}`}
+        transition:name={`${tag} card`}
+        class="text-sm blur-target-no-hover px-1 border border-black rounded-xl hover:bg-black hover:text-white"
+      >
+        {tag}
+      </a>
+    ))
+  }
+</div>
