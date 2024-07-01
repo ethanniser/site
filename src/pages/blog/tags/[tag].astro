@@ -2,6 +2,7 @@
 import Page from "@/layouts/Page.astro";
 import BlogPostList from "@/components/BlogPostList.astro";
 import { getCollection } from "astro:content";
+import { SITE_TITLE } from "@/consts";
 
 // export async function getStaticPaths() {
 //   const posts = await getCollection("blog");
@@ -20,7 +21,10 @@ if (!tag) {
 }
 ---
 
-<Page>
+<Page
+  title={`Blog - ${tag} | ${SITE_TITLE}`}
+  description={`All posts tagged with ${tag}`}
+>
   <h1 class="font-bold text-4xl">{`Blog - ${tag}`}</h1>
   <div class="py-1"></div>
   <a href="/blog/tags" class="md:hover:underline md:no-underline underline"

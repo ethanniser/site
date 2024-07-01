@@ -1,9 +1,10 @@
 ---
 import Page from "@/layouts/Page.astro";
 import BlogPostList from "@/components/BlogPostList.astro";
+import { SITE_TITLE } from "@/consts";
 ---
 
-<Page>
+<Page title={`Blog | ${SITE_TITLE}`} description="My personal blog">
   <h1 class="font-bold text-4xl">Blog</h1>
   <div class="py-1"></div>
   <a href="/blog/tags" class="md:hover:underline md:no-underline underline"

@@ -2,6 +2,7 @@
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
 import { getCollection } from "astro:content";
+import { SITE_TITLE } from "@/consts";
 
 function groupBy<K extends PropertyKey, T>(
   items: Iterable<T>,
@@ -34,7 +35,10 @@ const sorted = Object.entries(groupedPosts).sort((a, b) => {
 });
 ---
 
-<Page>
+<Page
+  title={`Blog - Tags | ${SITE_TITLE}`}
+  description="All tags I've used in my blog"
+>
   <Main title="Blog - Tags">
     <div class="flex flex-col gap-y-3">
       {
