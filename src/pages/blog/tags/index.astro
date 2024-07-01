@@ -1,0 +1,26 @@
+---
+import Page from "@/layouts/Page.astro";
+import Main from "@/components/Main.astro";
+import BlogPostList from "@/components/BlogPostList.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const postPerTag = posts.flatMap(
+  (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? []
+);
+const groupedPosts = Object.groupBy(postPerTag, (_) => _.tag);
+---
+
+<Page>
+  <Main title="Tags">
+    <div class="flex flex-col gap-y-3">
+      {
+        Object.entries(groupedPosts).map(([tag, posts]) => (
+          <a href={`/blog/tags/${tag}`}>
+            <h2 class="text-xl hover:underline">{`${tag} (${posts?.length})`}</h2>
+          </a>
+        ))
+      }
+    </div>
+  </Main>
+</Page>

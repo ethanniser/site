@@ -12,11 +12,10 @@ const posts = (await getCollection("blog")).sort(
 );
 
 const { limit, tag } = Astro.props;
-
 const filteredPosts = tag
   ? posts.filter((post) => post.data.tags?.includes(tag))
   : posts;
-const slicedPosts = limit ? filteredPosts.slice(0, limit) : posts;
+const slicedPosts = limit ? filteredPosts.slice(0, limit) : filteredPosts;
 ---
 
 <ul class="flex flex-col gap-y-5 items-start">
