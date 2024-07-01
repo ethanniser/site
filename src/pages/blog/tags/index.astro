@@ -29,7 +29,7 @@ const groupedPosts = groupBy(postPerTag, (_) => _.tag);
 ---
 
 <Page>
-  <Main title="Tags">
+  <Main title="Blog - Tags">
     <div class="flex flex-col gap-y-3">
       {
         Object.entries(groupedPosts).map(([tag, posts]) => (
