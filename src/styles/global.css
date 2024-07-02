@@ -9,27 +9,6 @@
   font-style: normal;
 }
 
-.rotate-container {
-  transform: skewY(-5deg);
-  overflow: hidden;
-  position: relative;
-}
-
-.rotate-text {
-  display: inline-block;
-  transform: skewY(5deg);
-  transition: transform 0.3s;
-}
-
-.rotate-container:hover .rotate-text {
-  transform: skewY(10deg);
-}
-
-.rotate-container:hover {
-  background-color: white;
-  color: black;
-}
-
 .blur-target {
   position: relative;
   display: inline-block; /* Ensure each line is contained */
@@ -57,14 +36,4 @@
   background-color: white;
   z-index: -1; /* Ensure the background is behind the text */
   filter: blur(0.5em);
-}
-
-.blur-target-no-hover:hover {
-  background-color: transparent;
-  filter: none;
-}
-
-.blur-target-no-hover:hover::before {
-  background-color: transparent;
-  filter: none;
 }
