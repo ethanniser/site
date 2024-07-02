@@ -10,5 +10,7 @@ export default defineConfig({
   site: "https://ethanniser.dev",
   integrations: [mdx(), sitemap(), tailwind(), preact()],
   output: "server",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "cloudflare",
+  }),
 });
