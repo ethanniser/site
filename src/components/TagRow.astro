@@ -17,7 +17,7 @@ const { tags, articleName, class: className, highlight } = Astro.props;
       <a href={`/blog/tags/${tag}`}>
         <p
           class={`relative inline-block text-sm blur-target-no-hover px-1 border border-black rounded-xl hover:bg-black hover:text-white 
-              ${highlight === tag ? "ovveride" : ""}
+              ${highlight === tag ? "bg-black text-white filter-none before:bg-transparent before:filter-none" : ""}
             `}
           transition:name={`${articleName} - tag -${tag}`}
         >
@@ -27,16 +27,3 @@ const { tags, articleName, class: className, highlight } = Astro.props;
     ))
   }
 </div>
-
-<style>
-  .ovveride {
-    background-color: black;
-    color: white;
-    filter: none;
-  }
-
-  .ovveride::before {
-    background-color: transparent;
-    filter: none;
-  }
-</style>

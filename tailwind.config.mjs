@@ -6,6 +6,14 @@ export default {
       fontFamily: {
         sans: ['"Berkeley Mono Trial"', "sans-serif"],
       },
+      backgroundImage: {
+        svg1: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>')`,
+        svg2: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>')`,
+      },
+      skew: {
+        5: "5deg",
+        10: "10deg",
+      },
     },
     screens: {
       xs: "480px",

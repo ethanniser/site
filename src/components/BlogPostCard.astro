@@ -19,8 +19,13 @@ const {
 
 <div class="relative">
   <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
-    <div class="border-2 border-black rounded-md" id="outer">
-      <div class="w-full h-full p-3 flex flex-col items-start" id="inner">
+    <div
+      class="border-2 border-black rounded-md relative after:absolute after:top-[10px] after:left-[10px] after:w-full after:h-full after:bg-svg2 after:-z-10 after:rounded-md after:transition-top after:duration-300 after:hover:-top-[10px]"
+      id="outer"
+    >
+      <div
+        class="w-full h-full p-3 flex flex-col items-start bg-svg1 bg-white relative z-10"
+      >
         <h4 class="font-bold text-lg text-wrap">
           <span class="blur-target" transition:name={title}>{title}</span>
         </h4>
@@ -40,33 +45,3 @@ const {
     highlight={highlight}
   />
 </div>
-
-<style>
-  #outer {
-    position: relative;
-  }
-
-  #inner {
-    background-color: white;
-    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>');
-    position: relative;
-    z-index: 10;
-  }
-
-  #outer::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><path stroke="%23000" stroke-width=".5" d="m0 0 4 4Zm4 0L0 4Z"/></svg>');
-    z-index: -1;
-    border-radius: 0.375rem;
-    transition: top, 0.3s;
-  }
-
-  #outer:hover::after {
-    top: -0.5em;
-  }
-</style>
