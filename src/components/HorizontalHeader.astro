@@ -12,8 +12,8 @@ function getRandomJSKeyword() {
 <nav>
   <div class="flex flex-row justify-between gap-y-2">
     <div class="flex flex-col items-start">
-      <a href="/"><h1 class="font-bold text-2xl">{Constants.SITE_TITLE}</h1></a>
-      <h2 class="italic text-center">{getRandomJSKeyword()}</h2>
+      <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
+      <h2 class="text-center italic">{getRandomJSKeyword()}</h2>
     </div>
     <div>
       <HeaderInternalLink href="/blog">Blog</HeaderInternalLink>
@@ -23,7 +23,7 @@ function getRandomJSKeyword() {
   </div>
   <div class="py-3"></div>
   <div
-    class="xs:flex xs:flex-row xs:justify-evenly xs:max-w-screen xs:flex-wrap grid grid-cols-3 gap-y-2"
+    class="xs:max-w-screen grid grid-cols-3 gap-y-2 xs:flex xs:flex-row xs:flex-wrap xs:justify-evenly"
   >
     <HeaderExternalLink href={Constants.TWITTER_LINK}
       >Twitter</HeaderExternalLink

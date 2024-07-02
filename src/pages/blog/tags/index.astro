@@ -6,7 +6,7 @@ import { SITE_TITLE } from "@/consts";
 
 function groupBy<K extends PropertyKey, T>(
   items: Iterable<T>,
-  keySelector: (item: T, index: number) => K
+  keySelector: (item: T, index: number) => K,
 ): Partial<Record<K, T[]>> {
   return [...items].reduce(
     (result, item, index) => {
@@ -18,13 +18,13 @@ function groupBy<K extends PropertyKey, T>(
       }
       return result;
     },
-    {} as Partial<Record<K, T[]>>
+    {} as Partial<Record<K, T[]>>,
   );
 }
 
 const posts = await getCollection("blog");
 const postPerTag = posts.flatMap(
-  (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? []
+  (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? [],
 );
 const groupedPosts = groupBy(postPerTag, (_) => _.tag);
 // sort alphabetically
@@ -44,7 +44,7 @@ const sorted = Object.entries(groupedPosts).sort((a, b) => {
       {
         sorted.map(([tag, posts]) => (
           <a href={`/blog/tags/${tag}`}>
-            <h2 class="text-xl md:hover:underline md:no-underline underline">{`${tag} (${posts?.length})`}</h2>
+            <h2 class="text-xl underline md:no-underline md:hover:underline">{`${tag} (${posts?.length})`}</h2>
           </a>
         ))
       }

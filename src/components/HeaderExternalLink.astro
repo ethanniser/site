@@ -10,12 +10,12 @@ const { href } = Astro.props;
 
 <a
   {href}
-  class="text-white bg-black hover:bg-white hover:text-black transition ease-out duration-300 hover:animate-pulse max-w-24 px-1 overflow-hidden relative -skew-y-5"
+  class="relative max-w-24 -skew-y-5 overflow-hidden bg-black px-1 text-white transition duration-300 ease-out hover:animate-pulse hover:bg-white hover:text-black"
   target="_blank"
   rel="noopener noreferrer"
 >
   <h3
-    class="inline-block p-[0.1rem] skew-y-5 transition-transform duration-300 hover:skew-y-10"
+    class="inline-block skew-y-5 p-[0.1rem] transition-transform duration-300 hover:skew-y-10"
   >
     <slot />
   </h3>

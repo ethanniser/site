@@ -16,9 +16,7 @@ const { tags, articleName, class: className, highlight } = Astro.props;
     tags?.map((tag) => (
       <a href={`/blog/tags/${tag}`}>
         <p
-          class={`hover:filter-none hover:before:bg-transparent hover:before:filter-none relative inline-block text-sm blur-target-no-hover px-1 border border-black rounded-xl hover:bg-black hover:text-white 
-              ${highlight === tag ? "bg-black text-white filter-none before:bg-transparent before:filter-none" : ""}
-            `}
+          class={`blur-target-no-hover relative inline-block rounded-xl border border-black px-1 text-sm hover:bg-black hover:text-white hover:filter-none hover:before:bg-transparent hover:before:filter-none ${highlight === tag ? "bg-black text-white filter-none before:bg-transparent before:filter-none" : ""} `}
           transition:name={`${articleName} - tag -${tag}`}
         >
           {tag}

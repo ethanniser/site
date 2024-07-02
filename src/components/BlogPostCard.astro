@@ -20,13 +20,13 @@ const {
 <div class="relative">
   <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
     <div
-      class="border-2 border-black rounded-md relative after:absolute after:top-[10px] after:left-[10px] after:w-full after:h-full after:bg-svg2 after:-z-10 after:rounded-md after:transition-top after:duration-300 hover:after:-top-[10px]"
+      class="after:transition-top relative rounded-md border-2 border-black after:absolute after:left-[10px] after:top-[10px] after:-z-10 after:h-full after:w-full after:rounded-md after:bg-svg2 after:duration-300 hover:after:-top-[10px]"
       id="outer"
     >
       <div
-        class="w-full h-full p-3 flex flex-col items-start bg-svg1 bg-white relative z-10"
+        class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
       >
-        <h4 class="font-bold text-lg text-wrap">
+        <h4 class="text-wrap text-lg font-bold">
           <span class="blur-target" transition:name={title}>{title}</span>
         </h4>
         <div class="py-1"></div>
