@@ -17,8 +17,8 @@ const {
 } = Astro.props;
 ---
 
-<div class="group relative">
-  <a href={`/blog/${slug}/`} transition:name={`${title} ${pubDate} card`}>
+<div class="relative" transition:name={`${title} ${pubDate} card`}>
+  <a href={`/blog/${slug}/`} class="peer">
     <div class="relative overflow-hidden rounded-md border-2 border-black">
       <div
         class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
@@ -44,12 +44,12 @@ const {
         </p>
       </div>
     </div>
-    <div
-      class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
-        bg-svg2 duration-300 group-hover:-top-[0.5em]"
-    >
-    </div>
   </a>
+  <div
+    class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
+      bg-svg2 duration-300 peer-hover:-top-[0.5em]"
+  >
+  </div>
   <TagRow
     tags={tags}
     articleName={title}
