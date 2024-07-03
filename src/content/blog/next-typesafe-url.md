@@ -4,6 +4,7 @@ description: "a package for typesafe search and route params in nextjs"
 pubDate: "Jun 30 2024"
 tags: ["next"]
 ---
+
 # next-typesafe-url
 
 _Now with full support for app directory and server components!_

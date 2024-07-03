@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "bun run clean && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",

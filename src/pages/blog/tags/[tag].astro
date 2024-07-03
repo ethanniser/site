@@ -1,19 +1,7 @@
 ---
 import Page from "@/layouts/Page.astro";
 import BlogPostList from "@/components/BlogPostList.astro";
-import { getCollection } from "astro:content";
 import { SITE_TITLE } from "@/consts";
-
-// export async function getStaticPaths() {
-//   const posts = await getCollection("blog");
-//   const allTagsDup = posts
-//     .flatMap((post) => post.data.tags)
-//     .filter((tag): tag is string => !!tag);
-//   const allTags = [...new Set(allTagsDup)];
-//   return allTags.map((tag) => ({
-//     params: { tag },
-//   }));
-// }
 
 const { tag } = Astro.params;
 if (!tag) {
