@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Berkeley Mono", "sans-serif"],
+        sans: ["Berkeley Mono Variable", "sans-serif"],
       },
       backgroundImage: {
         svg1: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>')`,
@@ -13,6 +13,71 @@ export default {
       skew: {
         5: "5deg",
         10: "10deg",
+      },
+      fontWeight: {
+        normal: "100", // 400
+        medium: "110", // 500
+        semibold: "120", // 600
+        bold: "130", // 700
+        extrabold: "140", // 800
+        black: "150", // 900
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              fontWeight: "110",
+            },
+            strong: {
+              fontWeight: "120",
+            },
+            "ol > li::marker": {
+              fontWeight: "100",
+            },
+            dt: {
+              fontWeight: "120",
+            },
+            blockquote: {
+              fontWeight: "110",
+            },
+            h1: {
+              fontWeight: "140",
+            },
+            "h1 strong": {
+              fontWeight: "150",
+            },
+            h2: {
+              fontWeight: "130",
+            },
+            "h2 strong": {
+              fontWeight: "140",
+            },
+            h3: {
+              fontWeight: "120",
+            },
+            "h3 strong": {
+              fontWeight: "130",
+            },
+            h4: {
+              fontWeight: "120",
+            },
+            "h4 strong": {
+              fontWeight: "130",
+            },
+            kbd: {
+              fontWeight: "110",
+            },
+            code: {
+              fontWeight: "120",
+            },
+            pre: {
+              fontWeight: "100",
+            },
+            "thread th": {
+              fontWeight: "120",
+            },
+          },
+        },
       },
     },
     screens: {
