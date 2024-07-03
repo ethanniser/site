@@ -1,0 +1,17 @@
+---
+import Main from "@/components/Main.astro";
+import Page from "@/layouts/Page.astro";
+import { SITE_TITLE } from "@/consts";
+import { getEntry } from "astro:content";
+
+const md = await getEntry("pages", "videos");
+const { Content } = await md.render();
+---
+
+<Page title={`Videos | ${SITE_TITLE}`} description="Videos I've made">
+  <Main title="Videos">
+    <article class="prose">
+      <Content />
+    </article>
+  </Main>
+</Page>
