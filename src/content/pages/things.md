@@ -34,7 +34,7 @@ Arc
 
 ### Laptop
 
-M4 Max 14in MacBook Pro 32GB 1TB
+M3 Max 14in MacBook Pro 32GB 1TB
 
 ### PC
 
