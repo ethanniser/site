@@ -12,7 +12,7 @@ _Now with full support for app directory and server components!_
 
 Fully typesafe, JSON serializable, and [zod](https://www.npmjs.com/package/zod) validated URL search params, dynamic route params, and routing for NextJS.
 
-**Big shoutout to [tanstack\router](https://github.com/tanstack/router) and [yesmeck\remix-routes](https://github.com/yesmeck/remix-routes) for inspiration and ideas.**
+**Big shoutout to [tanstack/router](https://github.com/tanstack/router) and [yesmeck/remix-routes](https://github.com/yesmeck/remix-routes) for inspiration and ideas.**
 
 ## Whats wrong with curent solutions?
 
@@ -22,7 +22,7 @@ Next.js's non-typesafe routing can lead to runtime errors and make it difficult 
 
 ### Search Params
 
-_from [tanstack\router](https://tanstack.com/router/v1/docs/guide/search-params):_
+_from [tanstack/router](https://tanstack.com/router/v1/docs/guide/search-params):_
 
 Traditional Search Param APIs usually assume a few things:
 

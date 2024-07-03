@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Berkeley Mono Trial"', "sans-serif"],
+        sans: ["Berkeley Mono", "sans-serif"],
       },
       backgroundImage: {
         svg1: `url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5"/><circle cx="3" cy="3" r=".5"/></svg>')`,
