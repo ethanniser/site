@@ -7,8 +7,10 @@
   font-style: normal;
   font-weight: 100 150;
   src:
-    url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2-variations"),
-    url("/fonts/BerkeleyMonoVariable-Regular.woff2") format("woff2");
+    url("https://assets-d9g.pages.dev/fonts/BerkeleyMonoVariable-Regular.woff2")
+      format("woff2-variations"),
+    url("https://assets-d9g.pages.dev/fonts/BerkeleyMonoVariable-Regular.woff2")
+      format("woff2");
 }
 
 @font-face {
@@ -16,6 +18,8 @@
   font-style: italic;
   font-weight: 100 150;
   src:
-    url("/fonts/BerkeleyMonoVariable-Italic.woff2") format("woff2-variations"),
-    url("/fonts/BerkeleyMonoVariable-Italic.woff2") format("woff2");
+    url("https://assets-d9g.pages.dev/fonts/BerkeleyMonoVariable-Italic.woff2")
+      format("woff2-variations"),
+    url("https://assets-d9g.pages.dev/fonts/BerkeleyMonoVariable-Italic.woff2")
+      format("woff2");
 }

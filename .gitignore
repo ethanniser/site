@@ -24,7 +24,3 @@ pnpm-debug.log*
 .idea/
 
 .vercel
-
-# licensed fonts
-./public/fonts/BerkeleyMonoVariable-Italic.woff2
-./public/fonts/BerkeleyMonoVariable-Regular.woff2
