@@ -2,6 +2,7 @@
 title: "Effect Best Practices"
 description: "Some tips to write good Effect code"
 pubDate: "Aug 02 2024"
+tags: ["effect"]
 ---
 
 *This is a living document I hope to continuously update over time.*
