@@ -2,6 +2,7 @@
 title: "Effect Best Practices"
 description: "Some tips to write good Effect code"
 pubDate: "Aug 02 2024"
+updatedDate: "Aug 02 2024"
 tags: ["effect"]
 ---
 
@@ -25,7 +26,7 @@ Use `Either` (and `Option`) to describe **data**, not computations
 Especially in the error channel, `unknown` is a big no-no - use `Cause.UnknownException` if you have this case
 
 ### When dealing with `Cause` you probably want to use `Cause.failureOrCause`
-`Cause` is kind of a really annoying type to work work (because it makes you consider all of the cases you didn't before), and it turns out there is a lot of ways to describe the failure of a computation.
+`Cause` is kind of a really annoying type to work work (because it makes you consider all of the cases you didn't before), and it turns out there are a lot of ways to describe the failure of a computation.
 
 `Cause.failureOrCause` will turn `Cause<E>` into `Either<E, Cause<never>>`, giving you either the expected error `E` or *some* unknown unexpected error (defect, interrupt, a combination, etc.) without having to pattern match on all of the cases yourself
 
@@ -34,7 +35,7 @@ Effect provides a huge library of utilities to work with immutable data structur
 
 The `Struct` and `Record` modules are really nice here
 
-### If you need to get the current time, use `Effect.clockWith(c => c.currentTimeMillis)` instead of `Effect.sync(() => Date.now())`
+### If you need to get the current time, use `Clock.currentTimeMillis` instead of `Effect.sync(() => Date.now())`
 This will allow you to test time-dependent code
 
 ### If you ever want to share a built service (the output of a `Layer`) between 'runs' of effects, you need to construct your own `Runtime` and reuse that across 'runs'
@@ -50,7 +51,7 @@ This is surprisingly easy to do and extremely harmful to your code
 ```ts
 Effect.tryPromise({
   try: () => someLibraryFunc(),
-  catch: () => new LibraryError()
+  catch: () => new FooError()
 })
 // You'll know there was a FooError, 
 // but you won't know where it came from or what caused it!
