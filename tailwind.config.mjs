@@ -76,6 +76,18 @@ export default {
             "thread th": {
               fontWeight: "120",
             },
+            "h1 a, h2 a, h3 a, h4 a, h5 a, h6 a": {
+              textDecoration: "none",
+            },
+            "h1 a:hover::before, h2 a:hover::before, h3 a:hover::before, h4 a:hover::before, h5 a:hover::before, h6 a:hover::before":
+              {
+                content: '"#"',
+                position: "absolute",
+                transform: "translateX(-1.25rem)",
+              },
+            "h1, h2, h3, h4, h5, h6": {
+              position: "relative",
+            },
           },
         },
       },
