@@ -26,7 +26,7 @@ Use `Either` (and `Option`) to describe **data**, not computations
 Especially in the error channel, `unknown` is a big no-no - use `Cause.UnknownException` if you have this case
 
 ### When dealing with `Cause` you probably want to use `Cause.failureOrCause`
-`Cause` is kind of a really annoying type to work work (because it makes you consider all of the cases you didn't before), and it turns out there are a lot of ways to describe the failure of a computation.
+`Cause` is kind of a really annoying type to work with (because it makes you consider all of the cases you didn't before), and it turns out there are a lot of ways to describe the failure of a computation.
 
 `Cause.failureOrCause` will turn `Cause<E>` into `Either<E, Cause<never>>`, giving you either the expected error `E` or *some* unknown unexpected error (defect, interrupt, a combination, etc.) without having to pattern match on all of the cases yourself
 
