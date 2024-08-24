@@ -19,7 +19,9 @@ const { video } = Astro.props;
       <div
         class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
       >
-        <div class="relative w-full overflow-hidden bg-black pb-[56.25%]">
+        <div
+          class="relative w-full overflow-hidden rounded-md bg-black pb-[56.25%]"
+        >
           <img
             src={video.snippet.thumbnails.high.url}
             alt="YouTube Thumbnail"
@@ -47,10 +49,10 @@ const { video } = Astro.props;
         </h4>
       </div>
     </div>
-    <div
-      class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
-        bg-svg2 duration-300 peer-hover:-top-[0.5em]"
-    >
-    </div>
   </a>
+  <div
+    class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
+      bg-svg2 duration-300 peer-hover:-top-[0.5em]"
+  >
+  </div>
 </div>
