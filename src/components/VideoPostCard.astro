@@ -10,7 +10,11 @@ const { video } = Astro.props;
 ---
 
 <div class="relative">
-  <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} class="peer">
+  <a
+    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+    target="_blank"
+    class="peer"
+  >
     <div class="relative overflow-hidden rounded-md border-2 border-black">
       <div
         class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
@@ -37,7 +41,7 @@ const { video } = Astro.props;
                 before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
                 before:content-['']"
             >
-              <FormattedDate date={new Date(video.snippet.publishTime)} />
+              <FormattedDate date={video.snippet.publishTime} />
             </span>
           </p>
         </h4>

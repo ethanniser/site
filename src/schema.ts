@@ -28,7 +28,7 @@ const ytVideoItem = z.object({
     }),
     channelTitle: z.string(),
     liveBroadcastContent: z.string(),
-    publishTime: z.string(),
+    publishTime: z.string().transform((s) => new Date(s)),
   }),
 });
 
@@ -48,7 +48,7 @@ const ytChannelItem = z.object({
     }),
     channelTitle: z.string(),
     liveBroadcastContent: z.string(),
-    publishTime: z.string(),
+    publishTime: z.string().transform((s) => new Date(s)),
   }),
 });
 
@@ -60,4 +60,4 @@ export const ytVideoRes = z.object({
   items: z.array(z.union([ytVideoItem, ytChannelItem])),
 });
 
-export type Video = z.infer<typeof ytVideoItem>;
+export type Video = z.output<typeof ytVideoItem>;

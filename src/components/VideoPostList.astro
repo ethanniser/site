@@ -18,7 +18,10 @@ const parsed = ytVideoRes.parse(json);
 const { limit } = Astro.props;
 const videos = parsed.items
   .slice(0, limit ?? parsed.items.length)
-  .filter((item): item is Video => item.id.kind === "youtube#video");
+  .filter((item): item is Video => item.id.kind === "youtube#video")
+  .sort(
+    (a, b) => b.snippet.publishTime.getTime() - a.snippet.publishTime.getTime(),
+  );
 ---
 
 <ul class="flex flex-col items-start gap-y-5">
