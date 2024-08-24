@@ -41,7 +41,7 @@ try {
 }
 ---
 
-<p>{JSON.stringify(error, null, 2)}</p>
+<p>{String(error)}</p>
 <p>{JSON.stringify(Astro.locals.runtime.env, null, 2)}</p>
 <ul
   class={`flex flex-col items-start gap-y-5
