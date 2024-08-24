@@ -10,9 +10,7 @@ const { limit, grid } = Astro.props;
 function getApiKey() {
   if (import.meta.env.GOOGLE_API_KEY) {
     return import.meta.env.GOOGLE_API_KEY;
-    // @ts-expect-error idk astro is weird
   } else if (Astro.locals.runtime.env.GOOGLE_API_KEY) {
-    // @ts-expect-error idk astro is weird
     return Astro.locals.runtime.env.GOOGLE_API_KEY;
   } else {
     throw new Error("no google api key found");
@@ -20,6 +18,7 @@ function getApiKey() {
 }
 
 let videos: Video[] = [];
+let error: unknown = undefined;
 try {
   const url = new URL("https://www.googleapis.com/youtube/v3/search");
   url.searchParams.set("part", "snippet");
@@ -38,10 +37,12 @@ try {
         b.snippet.publishTime.getTime() - a.snippet.publishTime.getTime(),
     );
 } catch (e) {
-  console.error(e);
+  error = e;
 }
 ---
 
+<p>{JSON.stringify(error, null, 2)}</p>
+<p>{JSON.stringify(Astro.locals.runtime.env, null, 2)}</p>
 <ul
   class={`flex flex-col items-start gap-y-5
     ${grid ? "lg:grid lg:grid-cols-2 lg:gap-x-6 lg:gap-y-6" : ""}`}
