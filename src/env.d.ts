@@ -2,7 +2,7 @@
 /// <reference types="astro/client" />
 
 interface ImportMetaEnv {
-  readonly GOOGLE_API_KEY: string;
+  readonly GOOGLE_API_KEY?: string;
 }
 
 interface ImportMeta {

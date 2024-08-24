@@ -5,14 +5,26 @@ type Props = {
   limit?: number;
   grid?: boolean;
 };
-
 const { limit, grid } = Astro.props;
+
+function getApiKey() {
+  if (import.meta.env.GOOGLE_API_KEY) {
+    return import.meta.env.GOOGLE_API_KEY;
+    // @ts-expect-error idk astro is weird
+  } else if (Astro.locals.runtime.env.GOOGLE_API_KEY) {
+    // @ts-expect-error idk astro is weird
+    return Astro.locals.runtime.env.GOOGLE_API_KEY;
+  } else {
+    throw new Error("no google api key found");
+  }
+}
+
 let videos: Video[] = [];
 try {
   const url = new URL("https://www.googleapis.com/youtube/v3/search");
   url.searchParams.set("part", "snippet");
   url.searchParams.set("channelId", "UC1OBuTOu68SmE_8LfquGbSA");
-  url.searchParams.set("key", import.meta.env.GOOGLE_API_KEY);
+  url.searchParams.set("key", getApiKey());
   url.searchParams.set("maxResults", "50");
   const res = await fetch(url);
   const json = await res.json();
