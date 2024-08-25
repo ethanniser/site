@@ -12,6 +12,7 @@ interface Props {
   title?: string | undefined;
   description?: string | undefined;
   image?: string | undefined;
+  keyword?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -20,6 +21,7 @@ const {
   title = Constants.SITE_TITLE,
   description = Constants.SITE_DESCRIPTION,
   image = "/images/twitter.png",
+  keyword,
 } = Astro.props;
 ---
 
@@ -81,12 +83,12 @@ const {
 
   <body class="flex min-h-screen w-full flex-col p-4 font-normal md:p-10">
     <div class="md:hidden">
-      <HorizontalHeader />
+      <HorizontalHeader {keyword} />
       <div class="py-4"></div>
     </div>
     <div class="flex-grow md:flex">
       <aside class="hidden md:block md:w-1/4">
-        <VerticalHeader />
+        <VerticalHeader {keyword} />
       </aside>
       <main class="w-full md:w-3/4 md:max-w-2xl">
         <slot />
