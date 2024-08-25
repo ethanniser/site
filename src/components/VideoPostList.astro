@@ -1,0 +1,58 @@
+---
+import VideoPostCard from "@/components/VideoPostCard.astro";
+import { ytVideoRes, type Video } from "@/schema";
+type Props = {
+  limit?: number;
+  grid?: boolean;
+};
+const { limit, grid } = Astro.props;
+
+function getApiKey() {
+  if (import.meta.env.GOOGLE_API_KEY) {
+    return import.meta.env.GOOGLE_API_KEY;
+  } else if (Astro.locals.runtime.env.GOOGLE_API_KEY) {
+    return Astro.locals.runtime.env.GOOGLE_API_KEY;
+  } else {
+    throw new Error("no google api key found");
+  }
+}
+
+let videos: Video[] = [];
+try {
+  const url = new URL("https://www.googleapis.com/youtube/v3/search");
+  url.searchParams.set("part", "snippet");
+  url.searchParams.set("channelId", "UC1OBuTOu68SmE_8LfquGbSA");
+  url.searchParams.set("key", getApiKey());
+  url.searchParams.set("maxResults", "50");
+  const res = await fetch(url);
+  const json = await res.json();
+  const parsed = ytVideoRes.parse(json);
+
+  videos = parsed.items
+    .slice(0, limit ?? parsed.items.length)
+    .filter((item): item is Video => item.id.kind === "youtube#video")
+    .sort(
+      (a, b) =>
+        b.snippet.publishTime.getTime() - a.snippet.publishTime.getTime(),
+    );
+} catch (e) {
+  console.error(e);
+}
+---
+
+<ul
+  class={`flex flex-col items-start gap-y-5
+    ${grid ? "lg:grid lg:grid-cols-2 lg:gap-x-6 lg:gap-y-6" : ""}`}
+>
+  {
+    videos.length > 0 ? (
+      videos.map((video) => (
+        <li class="w-full max-w-96">
+          <VideoPostCard {video} />
+        </li>
+      ))
+    ) : (
+      <p>No videos found? (please dm me to go fix)</p>
+    )
+  }
+</ul>

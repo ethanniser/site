@@ -4,14 +4,19 @@ import Page from "@/layouts/Page.astro";
 import { SITE_TITLE } from "@/consts";
 import { getEntry } from "astro:content";
 
+// Prerender to cache video api result
+export const prerender = true;
+
 const md = await getEntry("pages", "videos");
 const { Content } = await md.render();
 ---
 
-<Page title={`Videos | ${SITE_TITLE}`} description="Videos I've made">
+<Page
+  title={`Videos | ${SITE_TITLE}`}
+  description="Videos I've made"
+  keyword="continue"
+>
   <Main title="Videos">
-    <article class="prose">
-      <Content />
-    </article>
+    <Content />
   </Main>
 </Page>

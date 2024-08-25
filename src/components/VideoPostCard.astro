@@ -1,0 +1,58 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import type { Video } from "@/schema";
+
+type Props = {
+  video: Video;
+};
+
+const { video } = Astro.props;
+---
+
+<div class="relative">
+  <a
+    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+    target="_blank"
+    class="peer"
+  >
+    <div class="relative overflow-hidden rounded-md border-2 border-black">
+      <div
+        class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
+      >
+        <div
+          class="relative w-full overflow-hidden rounded-md bg-black pb-[56.25%]"
+        >
+          <img
+            src={video.snippet.thumbnails.high.url}
+            alt="YouTube Thumbnail"
+            class="absolute left-0 top-0 h-full w-full object-cover"
+          />
+        </div>
+        <div class="py-2"></div>
+        <h4 class="text-wrap text-lg font-bold">
+          <span
+            class="relative inline-block before:absolute before:bottom-0 before:left-0
+              before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
+              before:content-['']"
+            >{video.snippet.title}
+          </span>
+          <div class="py-1"></div>
+          <p class="text-sm italic">
+            <span
+              class="relative inline-block before:absolute before:bottom-0 before:left-0
+                before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
+                before:content-['']"
+            >
+              <FormattedDate date={video.snippet.publishTime} />
+            </span>
+          </p>
+        </h4>
+      </div>
+    </div>
+  </a>
+  <div
+    class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
+      bg-svg2 duration-300 peer-hover:-top-[0.5em]"
+  >
+  </div>
+</div>
