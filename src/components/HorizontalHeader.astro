@@ -4,7 +4,7 @@ import HeaderExternalLink from "./HeaderExternalLink.astro";
 import HeaderInternalLink from "./HeaderInternalLink.astro";
 
 type Props = {
-  keyword?: string;
+  keyword?: string | undefined;
 };
 
 const { keyword } = Astro.props;

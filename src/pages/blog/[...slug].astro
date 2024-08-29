@@ -1,12 +1,12 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import BlogPost from "@/layouts/BlogPost.astro";
 
 const { slug } = Astro.params;
 if (!slug) {
   return Astro.redirect("/404");
 }
-const post = await getEntryBySlug("blog", slug);
+const post = await getEntry("blog", slug);
 if (!post) {
   return Astro.redirect("/404");
 }
