@@ -2,7 +2,7 @@
 title: "Effect Best Practices"
 description: "Some tips to write good Effect code"
 pubDate: "Aug 02 2024"
-updatedDate: "Aug 02 2024"
+updatedDate: "Sep 18 2024"
 tags: ["effect"]
 ---
 
@@ -82,14 +82,36 @@ const result = pipe(
 
 Put the `withSpan` inside the `Effect.either` to avoid this and maintain full observability
 
-
 ### Checking the truthiness of an `Option`
 It's an object, so it will always be truthy. Use `Option.isSome` or `Option.isNone` instead.
+
+### Unwrapping an `Option` when you didn't mean to
+
+This one can also be super sneaky
+```ts
+// returns Some if invalid, otherwise None
+const validate = (input) => pipe(
+  input,
+  validateInput,
+  Effect.catchAll((_e) => Option.none()) 
+  // if there is an error, just return as valid
+)
+```
+
+The bug here is not wrapping `Option.none()` in `Effect.succeed`. You won't get a type error because `Option` is a subtype of `Effect`, but at runtime the `None` will get lifted into an `Effect<never, NoSuchElementException>`, which is not what you want.
 
 ### By default, RPC transport errors are considered defects
 This may not always be what you want. The alternative is either `catchAllDefect` which is not the most safe and could catch some other non-transport error, or writing your own resolver that handle transport errors differently.
 
 ## Snippets
+
+### Lifting `NoSuchElementException` into an `Option`
+
+```ts
+declare const eff: Effect<T, NoSuchElementException | FooError>;
+const optionalEff = Effect.optionFromOptional(eff);
+//     ^ Effect<Option<T>, FooError>
+```
 
 ### A schema transformation that can only go one way
 ```ts
