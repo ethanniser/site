@@ -13,7 +13,8 @@ title: things
 
 ### Editor
 
-- [Neovim](https://github.com/ethanniser/nvim.nix)
+- Neovim
+    - [Configured as a nix flake](https://github.com/ethanniser/nvim.nix)
 - Visual Studio Code
 
 ### Font
