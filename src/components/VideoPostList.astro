@@ -27,14 +27,15 @@ try {
   const res = await fetch(url);
   const json = await res.json();
   const parsed = ytVideoRes.parse(json);
+  console.log(parsed);
 
   videos = parsed.items
-    .slice(0, limit ?? parsed.items.length)
     .filter((item): item is Video => item.id.kind === "youtube#video")
     .sort(
       (a, b) =>
         b.snippet.publishTime.getTime() - a.snippet.publishTime.getTime(),
-    );
+    )
+    .slice(0, limit ?? parsed.items.length);
 } catch (e) {
   console.error(e);
 }
