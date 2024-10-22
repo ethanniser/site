@@ -19,14 +19,11 @@ if (Astro.props.github) {
     const url = new URL(link);
     url.hostname = "api.github.com";
     url.pathname = `/repos${url.pathname}`;
-    console.log(`fetching: ${url.toString()}`);
     const res = await fetch(url, {
       headers: {
         "User-Agent": "ethanniser",
       },
     });
-    console.log(`res status: ${res.status}`);
-    console.log(`res text: ${await res.text()}`);
     const json = responseSchema.parse(await res.json());
     starNumber = json.stargazers_count;
   } catch (e) {
