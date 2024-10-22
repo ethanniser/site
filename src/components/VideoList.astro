@@ -27,7 +27,6 @@ try {
   const res = await fetch(url);
   const json = await res.json();
   const parsed = ytVideoRes.parse(json);
-  console.log(parsed);
 
   videos = parsed.items
     .filter((item): item is Video => item.id.kind === "youtube#video")
