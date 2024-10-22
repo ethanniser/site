@@ -15,14 +15,16 @@ const responseSchema = z.object({
 });
 let starNumber: number | null = null;
 if (Astro.props.github) {
-  const url = new URL(link);
-  url.hostname = "api.github.com";
-  url.pathname = `/repos${url.pathname}`;
-  const res = await fetch(url);
-  const json = await res.json();
-  const parseResult = responseSchema.safeParse(json);
-  if (parseResult.success) {
-    starNumber = parseResult.data.stargazers_count;
+  try {
+    const url = new URL(link);
+    url.hostname = "api.github.com";
+    url.pathname = `/repos${url.pathname}`;
+    console.log(`fetching: ${url.toString()}`);
+    const res = await fetch(url);
+    const json = responseSchema.parse(await res.json());
+    starNumber = json.stargazers_count;
+  } catch (e) {
+    console.error(e);
   }
 }
 ---
