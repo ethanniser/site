@@ -1,5 +1,5 @@
 ---
-import VideoPostCard from "@/components/VideoPostCard.astro";
+import VideoCard from "@/components/VideoCard.astro";
 import { ytVideoRes, type Video } from "@/schema";
 type Props = {
   limit?: number;
@@ -49,7 +49,7 @@ try {
     videos.length > 0 ? (
       videos.map((video) => (
         <li class="w-full max-w-96">
-          <VideoPostCard {video} />
+          <VideoCard {video} />
         </li>
       ))
     ) : (

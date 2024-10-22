@@ -1,0 +1,76 @@
+---
+import Star from "./icons/Star.astro";
+import { z } from "zod";
+type Props = {
+  title: string;
+  description: string;
+  link: string;
+  github?: boolean;
+};
+
+const { title, link, description } = Astro.props;
+
+const responseSchema = z.object({
+  stargazers_count: z.number(),
+});
+let starNumber: number | null = null;
+if (Astro.props.github) {
+  const url = new URL(link);
+  url.hostname = "api.github.com";
+  url.pathname = `/repos${url.pathname}`;
+  const res = await fetch(url);
+  const json = await res.json();
+  const parseResult = responseSchema.safeParse(json);
+  if (parseResult.success) {
+    starNumber = parseResult.data.stargazers_count;
+  }
+}
+---
+
+<div class="relative">
+  <a href={link} target="_blank" class="peer">
+    <div class="relative overflow-hidden rounded-md border-2 border-black">
+      <div
+        class="relative z-10 flex h-full w-full flex-col items-start bg-white bg-svg1 p-3"
+      >
+        <h4 class="text-wrap text-lg font-extrabold">
+          <span
+            class="relative inline-block before:absolute before:bottom-0 before:left-0
+              before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
+              before:content-['']"
+            >{title}
+          </span>
+        </h4>
+        <div class="py-1"></div>
+        <p class="text-sm">
+          <span
+            class="relative inline-block before:absolute before:bottom-0 before:left-0
+              before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
+              before:content-['']"
+          >
+            {description}
+          </span>
+        </p>
+        {
+          starNumber !== null && (
+            <div class="absolute right-2 top-2 flex flex-row items-center justify-center space-x-1">
+              <span
+                class="relative inline-block before:absolute before:bottom-0 before:left-0
+                  before:right-0 before:top-0 before:-z-10 before:bg-white before:blur-[0.5em]
+                  before:content-['']"
+              >
+                {starNumber}
+              </span>
+              <Star />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </a>
+  <div
+    class="transition-top absolute left-[0.5em] top-[0.5em] -z-10 h-full w-full rounded-md
+      bg-svg2 duration-300 peer-hover:-top-[0.5em]"
+  >
+  </div>
+</div>

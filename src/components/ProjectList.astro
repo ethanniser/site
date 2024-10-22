@@ -1,0 +1,55 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    title: "NextMaster",
+    description:
+      "A highly performant Next.js e-commerence site inspired by McMaster-Carr",
+    link: "https://github.com/ethanniser/NextMaster",
+    github: true,
+  },
+  {
+    title: "zdb",
+    description:
+      "A debugger written in zig, following 'Building a Debugger' by Sy Brand",
+    link: "https://github.com/ethanniser/zdb",
+    github: true,
+  },
+  {
+    title: "site",
+    description: "My personal website (that you are on right now :)",
+    link: "https://github.com/ethanniser/site",
+    github: true,
+  },
+  {
+    title: "next-typesafe-url",
+    description:
+      "Fully typesafe, JSON serializable, and zod validated URL search params, dynamic route params, and routing for Next.js",
+    link: "https://github.com/ethanniser/next-typesafe-url",
+    github: true,
+  },
+  {
+    title: "The BETH Stack",
+    description:
+      "An opinionated hypermedia-driven architecture for building web apps",
+    link: "https://github.com/ethanniser/the-beth-stack",
+    github: true,
+  },
+] satisfies {
+  title: string;
+  description: string;
+  link: string;
+  github?: boolean;
+}[];
+---
+
+<ul class="flex flex-col items-start gap-y-5">
+  {
+    projects.map((project) => (
+      <li class="w-full max-w-96">
+        <ProjectCard {...project} />
+      </li>
+    ))
+  }
+</ul>

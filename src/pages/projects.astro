@@ -2,16 +2,11 @@
 import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
 import { SITE_TITLE } from "@/consts";
-import { getEntry } from "astro:content";
-
-const md = await getEntry("pages", "projects");
-const { Content } = await md.render();
+import ProjectList from "@/components/ProjectList.astro";
 ---
 
 <Page title={`Projects | ${SITE_TITLE}`} description="Projects I've worked on">
   <Main title="Projects">
-    <article class="prose">
-      <Content />
-    </article>
+    <ProjectList />
   </Main>
 </Page>
