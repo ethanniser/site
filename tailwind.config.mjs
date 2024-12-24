@@ -25,6 +25,11 @@ export default {
       typography: {
         DEFAULT: {
           css: {
+            // this is to fix the rehypeAutolinkHeadings generated links inside headers
+            "h1 a[linkedheading], h2 a[linkedheading], h3 a[linkedheading], h4 a[linkedheading], h5 a[linkedheading], h6 a[linkedheading]":
+              {
+                fontWeight: "inherit",
+              },
             a: {
               fontWeight: "110",
             },

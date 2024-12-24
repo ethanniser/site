@@ -20,6 +20,9 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: "wrap",
+          properties: {
+            linkedheading: true,
+          },
         },
       ],
     ],
