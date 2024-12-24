@@ -6,7 +6,7 @@ import "../styles/global.css";
 import * as Constants from "@/consts";
 import Footer from "@/components/Footer.astro";
 import HorizontalHeader from "@/components/HorizontalHeader.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title?: string | undefined;
@@ -78,7 +78,7 @@ const {
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "84933259d875475985c66180f81b73bf"}'></script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body class="flex min-h-screen w-full flex-col p-4 font-normal md:p-10">
