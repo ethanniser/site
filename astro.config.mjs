@@ -2,11 +2,12 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import preact from "@astrojs/preact";
 import cloudflare from "@astrojs/cloudflare";
 import remarkToc from "remark-toc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,7 +30,7 @@ export default defineConfig({
     }),
     sitemap(),
     tailwind(),
-    preact(),
+    react(),
   ],
   output: "server",
   adapter: cloudflare({

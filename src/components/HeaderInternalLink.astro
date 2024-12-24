@@ -1,15 +1,15 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import CenterUnderline from "./AnimatedUnderline";
 
 type Props = {
   href: HTMLAttributes<"a">["href"];
+  label: string;
 };
 
-const { href } = Astro.props;
+const { href, label } = Astro.props;
 ---
 
-<a {href}>
-  <h2 class="underline md:no-underline md:hover:underline">
-    <slot />
-  </h2>
+<a {href} class="underline md:no-underline">
+  <CenterUnderline label={label} client:load alwaysShowOnMobile />
 </a>

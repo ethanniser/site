@@ -19,17 +19,15 @@ function getRandomJSKeyword() {
   <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
   <h2 class="text-center italic">{keyword ?? getRandomJSKeyword()}</h2>
   <div class="py-1"></div>
-  <HeaderInternalLink href="/blog">Blog</HeaderInternalLink>
-  <HeaderInternalLink href="/videos">Videos</HeaderInternalLink>
-  <HeaderInternalLink href="/projects">Projects</HeaderInternalLink>
-  <HeaderInternalLink href="/things">Things</HeaderInternalLink>
+  <HeaderInternalLink href="/blog" label="Blog" />
+  <HeaderInternalLink href="/videos" label="Videos" />
+  <HeaderInternalLink href="/projects" label="Projects" />
+  <HeaderInternalLink href="/things" label="Things" />
   <div class="py-2"></div>
-  <HeaderExternalLink href={Constants.TWITTER_LINK}>Twitter</HeaderExternalLink>
-  <HeaderExternalLink href={Constants.GITHUB_LINK}>GitHub</HeaderExternalLink>
-  <HeaderExternalLink href={Constants.YOUTUBE_LINK}>YouTube</HeaderExternalLink>
-  <HeaderExternalLink href={Constants.LINKEDIN_LINK}
-    >LinkedIn</HeaderExternalLink
-  >
-  <HeaderExternalLink href={Constants.EMAIL_LINK}>Email</HeaderExternalLink>
-  <HeaderExternalLink href="/rss.xml">RSS</HeaderExternalLink>
+  <HeaderExternalLink href={Constants.TWITTER_LINK} label="Twitter" />
+  <HeaderExternalLink href={Constants.GITHUB_LINK} label="GitHub" />
+  <HeaderExternalLink href={Constants.YOUTUBE_LINK} label="YouTube" />
+  <HeaderExternalLink href={Constants.LINKEDIN_LINK} label="LinkedIn" />
+  <HeaderExternalLink href={Constants.EMAIL_LINK} label="Email" />
+  <HeaderExternalLink href="/rss.xml" label="RSS" />
 </nav>
