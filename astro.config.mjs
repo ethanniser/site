@@ -34,9 +34,6 @@ export default defineConfig({
     react(),
   ],
   output: "static",
-  adapter: cloudflare({
-    imageService: "cloudflare",
-  }),
   vite: {
     plugins: [tailwindcss()],
   },

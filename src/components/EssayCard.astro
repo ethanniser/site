@@ -1,19 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
-import TagRow from "./TagRow.astro";
 
 type Props = {
-  post: CollectionEntry<"blog">;
-  highlight?: string | null | undefined;
+  essay: CollectionEntry<"essays">;
 };
 
 const {
-  post: {
-    data: { title, pubDate, tags },
+  essay: {
+    data: { title, pubDate },
     id,
   },
-  highlight,
 } = Astro.props;
 ---
 
@@ -50,10 +47,4 @@ const {
       rounded-md duration-300 peer-hover:-top-[0.5em]"
   >
   </div>
-  <TagRow
-    tags={tags}
-    articleName={title}
-    class="absolute right-2 bottom-2 z-10"
-    highlight={highlight}
-  />
 </div>

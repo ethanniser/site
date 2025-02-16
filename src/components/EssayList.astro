@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import EssayCard from "@/components/EssayCard.astro";
+
+type Props = {
+  limit?: number;
+};
+
+const essays = (await getCollection("essays")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const { limit } = Astro.props;
+const slicedEssays = limit ? essays.slice(0, limit) : essays;
+---
+
+<ul class="flex flex-col items-start gap-y-5">
+  {
+    slicedEssays.map((essay) => (
+      <li class="w-full max-w-96">
+        <EssayCard {essay} />
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,5 @@
+- [ ] tags for projects page
+- [ ] "external" page for links to other sites
+  - external blogs
+  - external videos
+  - ...

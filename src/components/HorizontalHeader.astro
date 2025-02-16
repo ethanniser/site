@@ -20,9 +20,11 @@ const { keyword } = Astro.props;
         document.getElementById("h-header-keyword").innerHTML = randomKeyword;
       </script>
     </div>
-    <div class="grid grid-cols-2 gap-x-2 text-right">
+    <div class="grid grid-cols-3 gap-x-2 text-right">
       <HeaderInternalLink href="/blog" label="Blog" />
+      <HeaderInternalLink href="/essays" label="Essays" />
       <HeaderInternalLink href="/videos" label="Videos" />
+      <div></div>
       <HeaderInternalLink href="/projects" label="Projects" />
       <HeaderInternalLink href="/things" label="Things" />
     </div>

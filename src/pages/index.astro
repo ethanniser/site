@@ -1,11 +1,7 @@
 ---
 import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
-import { getEntry } from "astro:content";
-
-const md = await getEntry("pages", "index");
-if (!md) throw new Error("no index page found");
-const { Content } = await md.render();
+import Content from "@/components/pages/index.mdx";
 ---
 
 <Page>

@@ -2,11 +2,7 @@
 import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
 import { SITE_TITLE } from "@/consts";
-import { getEntry } from "astro:content";
-
-const md = await getEntry("pages", "things");
-if (!md) throw new Error("no things page found");
-const { Content } = await md.render();
+import Content from "@/components/pages/things.md";
 ---
 
 <Page title={`Things | ${SITE_TITLE}`} description="Things I use">

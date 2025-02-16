@@ -14,13 +14,11 @@ export async function getStaticPaths() {
   }
   return Array.from(tags).map((tag) => ({
     params: { tag },
+    props: { tag },
   }));
 }
 
-const { tag } = Astro.params;
-if (!tag) {
-  return Astro.redirect("/blog/tags");
-}
+const { tag } = Astro.props;
 ---
 
 <Page
