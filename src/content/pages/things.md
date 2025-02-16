@@ -7,14 +7,14 @@ title: things
 ### Operating System
 
 - MacOS Sequoia
-    - [Configured via nix-darwin](https://github.com/ethanniser/config)
+  - [Configured via nix-darwin](https://github.com/ethanniser/config)
 - Windows 11
-    - for gaming
+  - for gaming
 
 ### Editor
 
 - Neovim
-    - [Configured as a nix flake](https://github.com/ethanniser/nvim.nix)
+  - [Configured as a nix flake](https://github.com/ethanniser/nvim.nix)
 - Visual Studio Code
 
 ### Font
