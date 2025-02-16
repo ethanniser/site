@@ -11,20 +11,22 @@ const { keyword } = Astro.props;
 ---
 
 <nav>
-  <div class="flex flex-row justify-between gap-y-2">
+  <div class="flex flex-row justify-between">
     <div class="flex flex-col items-start">
-      <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
+      <a href="/"
+        ><h1 class="min-w-40 text-2xl font-bold">{Constants.SITE_TITLE}</h1></a
+      >
       <h2 class="text-center italic" id="h-header-keyword">{keyword}</h2>
       <script is:inline>
         console.log("setting random keyword", window.randomKeyword);
         document.getElementById("h-header-keyword").innerHTML = randomKeyword;
       </script>
     </div>
-    <div class="grid grid-cols-3 gap-x-2 text-right">
+    <div class="grid grid-cols-3 gap-x-3 text-right">
+      <div></div>
       <HeaderInternalLink href="/blog" label="Blog" />
       <HeaderInternalLink href="/essays" label="Essays" />
       <HeaderInternalLink href="/videos" label="Videos" />
-      <div></div>
       <HeaderInternalLink href="/projects" label="Projects" />
       <HeaderInternalLink href="/things" label="Things" />
     </div>
