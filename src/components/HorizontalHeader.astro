@@ -4,22 +4,21 @@ import HeaderExternalLink from "./HeaderExternalLink.astro";
 import HeaderInternalLink from "./HeaderInternalLink.astro";
 
 type Props = {
-  keyword?: string | undefined;
+  keyword: Constants.JS_KEYWORD;
 };
 
 const { keyword } = Astro.props;
-
-function getRandomJSKeyword() {
-  const randomIndex = Math.floor(Math.random() * Constants.JS_KEYWORDS.length);
-  return Constants.JS_KEYWORDS[randomIndex] ?? "JavaScript";
-}
 ---
 
 <nav>
   <div class="flex flex-row justify-between gap-y-2">
     <div class="flex flex-col items-start">
       <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
-      <h2 class="text-center italic">{keyword ?? getRandomJSKeyword()}</h2>
+      <h2 class="text-center italic" id="h-header-keyword">{keyword}</h2>
+      <script is:inline>
+        console.log("setting random keyword", window.randomKeyword);
+        document.getElementById("h-header-keyword").innerHTML = randomKeyword;
+      </script>
     </div>
     <div class="grid grid-cols-2 gap-x-2 text-right">
       <HeaderInternalLink href="/blog" label="Blog" />
@@ -30,8 +29,8 @@ function getRandomJSKeyword() {
   </div>
   <div class="py-3"></div>
   <div
-    class="xs:max-w-screen grid grid-cols-3 gap-y-2 xs:flex xs:flex-row xs:flex-wrap
-      xs:justify-evenly"
+    class="xs:max-w-screen xs:flex xs:flex-row xs:flex-wrap xs:justify-evenly grid
+      grid-cols-3 gap-y-2"
   >
     <HeaderExternalLink href={Constants.TWITTER_LINK} label="Twitter" />
     <HeaderExternalLink href={Constants.GITHUB_LINK} label="GitHub" />

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const ytVideoItem = z.object({
+export const ytVideoItem = z.object({
   kind: z.literal("youtube#searchResult"),
   etag: z.string(),
   id: z.object({ kind: z.literal("youtube#video"), videoId: z.string() }),

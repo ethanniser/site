@@ -12,7 +12,7 @@ interface Props {
   title?: string | undefined;
   description?: string | undefined;
   image?: string | undefined;
-  keyword?: string;
+  keyword?: Constants.JS_KEYWORD;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -21,7 +21,7 @@ const {
   title = Constants.SITE_TITLE,
   description = Constants.SITE_DESCRIPTION,
   image = "/images/twitter.png",
-  keyword,
+  keyword = "default",
 } = Astro.props;
 ---
 
@@ -71,6 +71,70 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- random keyword -->
+    <script is:inline>
+      const JS_KEYWORDS = [
+        "break",
+        "case",
+        "catch",
+        "class",
+        "const",
+        "continue",
+        "debugger",
+        "default",
+        "delete",
+        "do",
+        "else",
+        "export",
+        "extends",
+        "false",
+        "finally",
+        "for",
+        "function",
+        "if",
+        "import",
+        "in",
+        "instanceof",
+        "new",
+        "null",
+        "return",
+        "super",
+        "switch",
+        "this",
+        "throw",
+        "true",
+        "try",
+        "typeof",
+        "var",
+        "void",
+        "while",
+        "with",
+        "let",
+        "static",
+        "yield",
+        "await",
+      ];
+
+      function getRandomJSKeyword() {
+        const randomIndex =
+          Math.floor(Math.random() * 1000) % JS_KEYWORDS.length;
+        return JS_KEYWORDS[randomIndex] ?? "default";
+      }
+
+      function setRandomKeyword() {
+        console.log("setting random keyword");
+        window.randomKeyword = getRandomJSKeyword();
+        const hHeader = document.getElementById("h-header-keyword");
+        const vHeader = document.getElementById("v-header-keyword");
+        if (hHeader) hHeader.innerHTML = window.randomKeyword;
+        if (vHeader) vHeader.innerHTML = window.randomKeyword;
+      }
+
+      setRandomKeyword();
+
+      document.addEventListener("astro:after-swap", setRandomKeyword);
+    </script>
 
     <!-- Cloudflare Web Analytics -->
     <script

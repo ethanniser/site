@@ -1,43 +1,13 @@
 ---
 import VideoCard from "@/components/VideoCard.astro";
-import { ytVideoRes, type Video } from "@/schema";
+import { getVideos } from "@/lib/video";
 type Props = {
   limit?: number;
   grid?: boolean;
 };
 const { limit, grid } = Astro.props;
 
-function getApiKey() {
-  if (import.meta.env.GOOGLE_API_KEY) {
-    return import.meta.env.GOOGLE_API_KEY;
-  } else if (Astro.locals.runtime.env.GOOGLE_API_KEY) {
-    return Astro.locals.runtime.env.GOOGLE_API_KEY;
-  } else {
-    throw new Error("no google api key found");
-  }
-}
-
-let videos: Video[] = [];
-try {
-  const url = new URL("https://www.googleapis.com/youtube/v3/search");
-  url.searchParams.set("part", "snippet");
-  url.searchParams.set("channelId", "UC1OBuTOu68SmE_8LfquGbSA");
-  url.searchParams.set("key", getApiKey());
-  url.searchParams.set("maxResults", "50");
-  const res = await fetch(url);
-  const json = await res.json();
-  const parsed = ytVideoRes.parse(json);
-
-  videos = parsed.items
-    .filter((item): item is Video => item.id.kind === "youtube#video")
-    .sort(
-      (a, b) =>
-        b.snippet.publishTime.getTime() - a.snippet.publishTime.getTime(),
-    )
-    .slice(0, limit ?? parsed.items.length);
-} catch (e) {
-  console.error(e);
-}
+const videos = await getVideos({ limit });
 ---
 
 <ul
@@ -52,7 +22,7 @@ try {
         </li>
       ))
     ) : (
-      <p>No videos found? (please dm me to go fix)</p>
+      <p>No videos found? The YouTube API is probably ratelimiting me...</p>
     )
   }
 </ul>

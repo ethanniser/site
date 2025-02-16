@@ -5,6 +5,7 @@ export const GITHUB_LINK = "https://github.com/ethanniser";
 export const YOUTUBE_LINK = "https://www.youtube.com/@ethanniser";
 export const LINKEDIN_LINK = "https://www.linkedin.com/in/ethanniser/";
 export const EMAIL_LINK = "mailto:ethan@niser.com";
+export type JS_KEYWORD = (typeof JS_KEYWORDS)[number];
 export const JS_KEYWORDS = [
   "break",
   "case",
@@ -45,4 +46,4 @@ export const JS_KEYWORDS = [
   "static",
   "yield",
   "await",
-];
+] as const;

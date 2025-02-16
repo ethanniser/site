@@ -4,20 +4,18 @@ import HeaderExternalLink from "./HeaderExternalLink.astro";
 import HeaderInternalLink from "./HeaderInternalLink.astro";
 
 type Props = {
-  keyword?: string | undefined;
+  keyword: Constants.JS_KEYWORD;
 };
 
 const { keyword } = Astro.props;
-
-function getRandomJSKeyword() {
-  const randomIndex = Math.floor(Math.random() * Constants.JS_KEYWORDS.length);
-  return Constants.JS_KEYWORDS[randomIndex] ?? "JavaScript";
-}
 ---
 
 <nav class="flex flex-col items-start gap-y-2">
   <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
-  <h2 class="text-center italic">{keyword ?? getRandomJSKeyword()}</h2>
+  <h2 class="text-center italic" id="v-header-keyword">{keyword}</h2>
+  <script is:inline>
+    document.getElementById("v-header-keyword").innerHTML = randomKeyword;
+  </script>
   <div class="py-1"></div>
   <HeaderInternalLink href="/blog" label="Blog" />
   <HeaderInternalLink href="/videos" label="Videos" />
