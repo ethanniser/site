@@ -11,5 +11,6 @@ const { href, label } = Astro.props;
 ---
 
 <a {href} class="underline md:no-underline">
-  <CenterUnderline label={label} client:load alwaysShowOnMobile />
+  <!-- <CenterUnderline label={label} client:load alwaysShowOnMobile /> -->
+  {label}
 </a>
