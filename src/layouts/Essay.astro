@@ -3,14 +3,13 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Page from "./Page.astro";
 import { SITE_TITLE } from "@/consts";
-import TagRow from "@/components/TagRow.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"essays">["data"];
 
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const { title, pubDate } = Astro.props;
 ---
 
-<Page title={`${title} | ${SITE_TITLE} | Blog`} description={description}>
+<Page title={`${title} | ${SITE_TITLE} | Blog`} description="A blog post">
   <h1 class="text-4xl font-bold">
     <span transition:name={title}>{title}</span>
   </h1>
@@ -18,18 +17,6 @@ const { title, description, pubDate, updatedDate, tags } = Astro.props;
   <span transition:name={`${title} ${pubDate}`}>
     <FormattedDate date={pubDate} />
   </span>
-  {
-    updatedDate && (
-      <>
-        <div class="py-1" />
-        <div class="last-updated-on">
-          Last updated: <FormattedDate date={updatedDate} />
-        </div>
-      </>
-    )
-  }
-  <div class="py-1"></div>
-  <TagRow tags={tags} articleName={title} />
   <div class="py-3"></div>
   <hr />
   <div class="py-3"></div>

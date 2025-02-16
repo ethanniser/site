@@ -1,4 +1,5 @@
 - [ ] tags for projects page
+  - probably just move to a json content collection tbh
 - [ ] "external" page for links to other sites
   - external blogs
   - external videos
