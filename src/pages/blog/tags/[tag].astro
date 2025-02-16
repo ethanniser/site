@@ -2,6 +2,20 @@
 import Page from "@/layouts/Page.astro";
 import BlogPostList from "@/components/BlogPostList.astro";
 import { SITE_TITLE } from "@/consts";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const collection = await getCollection("blog");
+  const tags = new Set<string>();
+  for (const post of collection) {
+    for (const tag of post.data.tags ?? []) {
+      tags.add(tag);
+    }
+  }
+  return Array.from(tags).map((tag) => ({
+    params: { tag },
+  }));
+}
 
 const { tag } = Astro.params;
 if (!tag) {

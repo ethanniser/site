@@ -24,6 +24,7 @@ export async function getVideos({
     console.error("failed to get cached videos", e);
   }
   try {
+    throw new Error("not implemented");
     const url = new URL("https://www.googleapis.com/youtube/v3/search");
     url.searchParams.set("part", "snippet");
     url.searchParams.set("channelId", "UC1OBuTOu68SmE_8LfquGbSA");

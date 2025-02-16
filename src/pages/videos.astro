@@ -3,9 +3,6 @@ import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
 import { SITE_TITLE } from "@/consts";
 import VideoList from "@/components/VideoList.astro";
-
-// Prerender to cache video api result
-export const prerender = true;
 ---
 
 <Page title={`Videos | ${SITE_TITLE}`} description="Videos I've made">
