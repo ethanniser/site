@@ -72,6 +72,13 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={Constants.SITE_TITLE}
+      href={new URL("rss.xml", Astro.site)}
+    />
+
     <!-- random keyword -->
     <script is:inline>
       const JS_KEYWORDS = [
