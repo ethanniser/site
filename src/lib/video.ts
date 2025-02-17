@@ -12,23 +12,43 @@ function getApiKey() {
 
 const dontFetch = true;
 
+const redisKey = "videos";
+let redis: ReturnType<typeof createClient> | undefined;
+async function getRedis() {
+  if (!redis) {
+    try {
+      redis = await createClient().connect();
+    } catch (e) {
+      throw new Error(
+        "Failed to connect to redis, did you start docker compose?",
+        { cause: e },
+      );
+    }
+  }
+  return redis;
+}
+
 export async function getVideos({
   limit,
 }: {
   limit: number | undefined;
 }): Promise<Video[]> {
-  let redis: ReturnType<typeof createClient> | undefined;
-  try {
-    redis = await createClient().connect();
-  } catch (e) {
-    console.error("failed to connect to redis", e);
+  if (import.meta.env.DEV) {
+    const redis = await getRedis();
+    const cached = await redis.get(redisKey);
+    if (cached) {
+      try {
+        return z.array(ytVideoItem).parse(JSON.parse(cached));
+      } catch (e) {
+        console.error("failed to parse cached videos", e);
+        await redis.del(redisKey);
+        console.log("cache deleted, fetching");
+      }
+    } else {
+      console.log("cache empty, fetching");
+    }
   }
-  try {
-    const cached = await redis?.get("videos");
-    return z.array(ytVideoItem).parse(JSON.parse(cached ?? ""));
-  } catch (e) {
-    console.error("failed to get cached videos", e);
-  }
+
   try {
     if (dontFetch) {
       throw new Error("not fetching");
@@ -53,9 +73,13 @@ export async function getVideos({
       )
       .slice(0, limit ?? parsed.items.length);
 
-    await redis?.set("videos", JSON.stringify(videos), {
-      EX: 60 * 15, // 15 minutes
-    });
+    if (import.meta.env.DEV) {
+      const redis = await getRedis();
+      await redis.set(redisKey, JSON.stringify(videos), {
+        EX: 60 * 15, // 15 minutes
+      });
+    }
+
     return videos;
   } catch (e) {
     console.error(e);

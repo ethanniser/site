@@ -1,6 +1,7 @@
 - Fix internal link flash on page change on mobile
 - [ ] tags for projects page
   - probably just move to a json content collection tbh
+  - maybe make two col square card grid?
 - [ ] "external" page for links to other sites
   - external blogs
   - external videos
