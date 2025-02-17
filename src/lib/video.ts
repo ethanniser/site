@@ -10,8 +10,6 @@ function getApiKey() {
   }
 }
 
-const dontFetch = true;
-
 const redisKey = "videos";
 let redis: ReturnType<typeof createClient> | undefined;
 async function getRedis() {
@@ -38,7 +36,9 @@ export async function getVideos({
     const cached = await redis.get(redisKey);
     if (cached) {
       try {
-        return z.array(ytVideoItem).parse(JSON.parse(cached));
+        const parsed = z.array(ytVideoItem).parse(JSON.parse(cached));
+        console.log("video cache hit");
+        return parsed;
       } catch (e) {
         console.error("failed to parse cached videos", e);
         await redis.del(redisKey);
@@ -50,9 +50,6 @@ export async function getVideos({
   }
 
   try {
-    if (dontFetch) {
-      throw new Error("not fetching");
-    }
     const url = new URL("https://www.googleapis.com/youtube/v3/search");
     url.searchParams.set("part", "snippet");
     url.searchParams.set("channelId", "UC1OBuTOu68SmE_8LfquGbSA");
@@ -76,7 +73,7 @@ export async function getVideos({
     if (import.meta.env.DEV) {
       const redis = await getRedis();
       await redis.set(redisKey, JSON.stringify(videos), {
-        EX: 60 * 15, // 15 minutes
+        EX: 60 * 60, // 1 hour
       });
     }
 
