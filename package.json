@@ -18,6 +18,7 @@
     "@astrojs/react": "4.2.0",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.2.1",
+    "@shikijs/twoslash": "^2.4.1",
     "@tailwindcss/typography": "^0.5.13",
     "@tailwindcss/vite": "^4.0.3",
     "@types/react": "^18.0.0",

@@ -24,6 +24,9 @@ export default defineConfig({
         },
       ],
     ],
+    // shikiConfig: {
+    //   transformers: [transformerTwoslash()],
+    // },
   },
   integrations: [
     mdx({

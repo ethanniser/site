@@ -3,6 +3,7 @@
   - probably just move to a json content collection tbh
   - maybe make two col square card grid?
   - inspo: https://www.shel.win/projects
+- [ ] add twoslash highlighting
 - [ ] "external" page for links to other sites
   - external blogs
   - external videos
