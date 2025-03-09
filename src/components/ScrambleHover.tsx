@@ -32,7 +32,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
   const [revealedIndices] = useState(new Set<number>());
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: Timer;
     let currentIteration = 0;
 
     const getNextIndex = () => {
