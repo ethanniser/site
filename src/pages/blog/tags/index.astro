@@ -2,7 +2,7 @@
 import Page from "@/layouts/Page.astro";
 import Main from "@/components/Main.astro";
 import { getCollection } from "astro:content";
-import { SITE_TITLE } from "@/consts";
+import { SITE_TITLE } from "@/lib/consts";
 
 function groupBy<K extends PropertyKey, T>(
   items: Iterable<T>,

@@ -1,4 +1,4 @@
-import { ytVideoRes, type Video, ytVideoItem } from "@/schema";
+import { ytVideoRes, type Video, ytVideoItem } from "@/lib/schema";
 import { createClient } from "redis";
 import { z } from "zod";
 

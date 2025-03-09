@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "check": "astro check",
     "build": "bun run clean && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "fmt": "prettier --write .",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "regen-videos": "bun run scripts/regen-videos.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
