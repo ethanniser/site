@@ -11,7 +11,7 @@
     "astro": "astro",
     "fmt": "prettier --write .",
     "clean": "rm -rf dist",
-    "regen-videos": "bun run scripts/regen-videos.ts"
+    "fetch-videos": "bun run scripts/fetch-videos.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -23,6 +23,7 @@
     "@shikijs/twoslash": "^2.4.1",
     "@tailwindcss/typography": "^0.5.13",
     "@tailwindcss/vite": "^4.0.3",
+    "@types/bun": "^1.2.4",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "astro": "5.2.5",
@@ -31,7 +32,6 @@
     "framer-motion": "^11.15.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "redis": "^4.7.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-toc": "^9.0.0",

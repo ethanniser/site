@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+export type Video = z.output<typeof ytVideoItem>;
 export const ytVideoItem = z.object({
   kind: z.literal("youtube#searchResult"),
   etag: z.string(),
@@ -30,6 +31,7 @@ export const ytVideoItem = z.object({
     liveBroadcastContent: z.string(),
     publishTime: z.string().transform((s) => new Date(s)),
   }),
+  external: z.boolean().optional().default(false),
 });
 
 const ytChannelItem = z.object({
@@ -59,5 +61,3 @@ export const ytVideoRes = z.object({
   pageInfo: z.object({ totalResults: z.number(), resultsPerPage: z.number() }),
   items: z.array(z.union([ytVideoItem, ytChannelItem])),
 });
-
-export type Video = z.output<typeof ytVideoItem>;
