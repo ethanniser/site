@@ -8,5 +8,6 @@
   - [ ] write blog post on how after bc its hard and no one has
 - [ ] "external" page for links to other sites
   - external blogs
-  - external videos
+  - [x] external videos (done but jank)
   - ...
+- [ ] move videos to a json content collection

@@ -58,23 +58,22 @@ const { video } = Astro.props;
   </div>
   {
     video.external && (
-      <div class="absolute right-2 bottom-2 z-10">
-        <p
-          class={cn(
-            `relative inline-block rounded-xl border border-black px-1 text-sm
-            before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0
-            before:-z-10 before:bg-white before:blur-[0.5em] before:content-['']
-            hover:bg-black hover:text-white hover:filter-none hover:before:bg-transparent
-            hover:before:filter-none`,
-            {
-              "bg-black text-white filter-none before:bg-transparent before:filter-none": false,
-              // highlight === tag,
-            },
-          )}
-        >
-          external
-        </p>
-      </div>
+      <a
+        href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+        target="_blank"
+      >
+        <div class="absolute right-2 bottom-2 z-10">
+          <p
+            class={cn(
+              `relative inline-block rounded-xl border border-black px-1 text-sm
+              before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0
+              before:-z-10 before:bg-white before:blur-[0.5em] before:content-['']`,
+            )}
+          >
+            external
+          </p>
+        </div>
+      </a>
     )
   }
 </div>
