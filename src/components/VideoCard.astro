@@ -1,6 +1,7 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
 import type { Video } from "@/lib/schema";
+import { cn } from "@/lib/utils";
 
 type Props = {
   video: Video;
@@ -55,4 +56,25 @@ const { video } = Astro.props;
       rounded-md duration-300 peer-hover:-top-[0.5em]"
   >
   </div>
+  {
+    video.external && (
+      <div class="absolute right-2 bottom-2 z-10">
+        <p
+          class={cn(
+            `relative inline-block rounded-xl border border-black px-1 text-sm
+            before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0
+            before:-z-10 before:bg-white before:blur-[0.5em] before:content-['']
+            hover:bg-black hover:text-white hover:filter-none hover:before:bg-transparent
+            hover:before:filter-none`,
+            {
+              "bg-black text-white filter-none before:bg-transparent before:filter-none": false,
+              // highlight === tag,
+            },
+          )}
+        >
+          external
+        </p>
+      </div>
+    )
+  }
 </div>

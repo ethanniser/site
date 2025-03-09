@@ -8,7 +8,7 @@ const manualVideos: Video[] = [
     snippet: {
       publishedAt: "2025-03-09T00:34:55Z",
       channelId: "UCFvPgPdb_emE_bpMZq6hmJQ",
-      title: "[EXTERNAL]You really need to try Effect ft. Ethan Niser",
+      title: "You really need to try Effect ft. Ethan Niser",
       description:
         "Effect is one of those libraries I've been putting off learning for a while. It's an absurdly powerful, yet different way to write ...",
       thumbnails: {
