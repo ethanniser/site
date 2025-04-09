@@ -1,6 +1,6 @@
 ---
 title: "Translating C++ X-macros to Zig Comptime"
-pubDate: "Apr 06 2025"
+pubDate: "Apr 09 2025"
 tags: ["zig", "c++", "metaprogramming"]
 ---
 
@@ -530,6 +530,8 @@ Also check out the `final_size` calculation in the middle of the snippet. Here w
 To do this we can inspect the type of `user_fpregs_struct`, loop over its fields and compare the field's name to the name we are expecting and return the size of that field's type. If no field is found we can use `@compileError` to halt things.
 
 And that's basically it. The end result is the same: an enum of all the id's and a array of all of the `RegisterInfo`s.
+
+It is worth mentioning at this point that using comptime in this way does have a significant effect on DX due to current limitations of the Zig LSP. While in theory it's completely possible to have full autocomplete for a comptime built type, as it stands you get no autocompletely and are basically forced to run the complier to see any errors. This is not as bad with the recent `-fincremental` which makes `--watch` recompiles very fast, but still is pretty rough. C++ macros do not suffer from this issue.
 
 ## Comparison
 
