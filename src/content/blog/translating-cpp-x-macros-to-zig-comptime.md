@@ -302,7 +302,28 @@ And all of the other macros used in the "objective" snippet from earlier are sim
      
 #define DEFINE_GPR_8L(name,super) \
     DEFINE_REGISTER(name, -1, 1, GPR_OFFSET(super),\
-     register_type::sub_gpr, register_format::uint)
+
+#define FPR_OFFSET(reg) (offsetof(user, i387) + offsetof(user_fpregs_struct, reg))
+#define FPR_SIZE(reg) (sizeof(user_fpregs_struct::reg))
+
+#define DEFINE_FPR(name,dwarf_id,user_name) \
+    DEFINE_REGISTER(name, dwarf_id, FPR_SIZE(user_name), FPR_OFFSET(user_name),\
+    register_type::fpr, register_format::uint)
+
+#define DEFINE_FP_ST(number) \
+    DEFINE_REGISTER(st ## number, (33 + number), 16,\
+     (FPR_OFFSET(st_space) + number*16), register_type::fpr,\
+     register_format::long_double)
+
+#define DEFINE_FP_MM(number) \
+    DEFINE_REGISTER(mm ## number, (41 + number), 8,\
+     (FPR_OFFSET(st_space) + number*16), register_type::fpr,\
+     register_format::vector)
+
+#define DEFINE_FP_XMM(number) \
+    DEFINE_REGISTER(xmm ## number, (17 + number), 16,\
+     (FPR_OFFSET(xmm_space) + number*16), register_type::fpr,\
+     register_format::vector)    register_type::sub_gpr, register_format::uint)
 ```
 
 So now hopefully with a strong understanding of the C++ solution. Let's see how Zig does things a bit differently.
