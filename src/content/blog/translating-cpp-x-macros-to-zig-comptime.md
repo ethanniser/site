@@ -309,6 +309,205 @@ So now hopefully with a strong understanding of the C++ solution. Let's see how 
 
 ## Zig Comptime
 
+Zig has a very special feature called `comptime`. It's a unique mix of both compile time evaluation of code and macros (can inspect and generate code).
+
+Let's see how it can help us refactor the X-macro based approach.
+
+To start we need some way to represent the core shared information for each register, note that this is not the final `RegisterInfo` struct, just a representation we will use to define other things. This was `DEFINE_REGISTER` in the C++ implementation. But this time, we'll just use a struct like we would for any other data:
+
+```zig
+const RegisterDefinition = struct {
+    name: []const u8,
+    dwarf_id: ?u32,
+    size: SizeCalculation,
+    offset_calc: OffsetCalculation,
+    reg_type: RegisterType,
+    reg_format: RegisterFormat,
+}
+```
+
+Then instead of helper macros around this core type (`DEFINE_GPR_64`, etc.) we can just define helper functions which construct instances of this struct, again just like we would for any other data.
+
+```zig
+fn gpr_64(
+    name: []const u8,
+    dwarf: ?u32,
+) RegisterDefinition {
+    return .{
+        .name = name,
+        .dwarf_id = dwarf,
+        .size = .{ .raw = 8 },
+        .offset_calc = .{ .gpr = name },
+        .reg_type = .gpr,
+        .reg_format = .uint,
+    };
+}
+fn gpr_32(name: []const u8, super_field: []const u8) RegisterDefinition {
+    return .{
+        .name = name,
+        .dwarf_id = null,
+        .size = .{ .raw = 4 },
+        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field } },
+        .reg_type = .sub_gpr,
+        .reg_format = .uint,
+    };
+}
+fn gpr_16(name: []const u8, super_field: []const u8) RegisterDefinition {
+    return .{
+        .name = name,
+        .dwarf_id = null,
+        .size = .{ .raw = 2 },
+        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field } },
+        .reg_type = .sub_gpr,
+        .reg_format = .uint,
+    };
+}
+fn gpr_8h(name: []const u8, super_field: []const u8) RegisterDefinition {
+    return .{
+        .name = name,
+        .dwarf_id = null,
+        .size = .{ .raw = 1 },
+        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field, .byte_offset = 1 } },
+        .reg_type = .sub_gpr,
+        .reg_format = .uint,
+    };
+}
+fn gpr_8l(name: []const u8, super_field: []const u8) RegisterDefinition {
+    return .{
+        .name = name,
+        .dwarf_id = null,
+        .size = .{ .raw = 1 },
+        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field } },
+        .reg_type = .sub_gpr,
+        .reg_format = .uint,
+    };
+}
+```
+
+Next, we create an array using these helper functions of all these definitions:
+
+```zig
+pub const registerDefinitions = [_]RegisterDefinition{
+    .gpr_64("rax", 0),
+    // ... 
+    .gpr_32("eax", "rax"),
+    // ... 
+    .gpr_16("ax", "rax"),
+    // ... 
+    .gpr_8h("ah", "rax"),
+    // ... 
+    .gpr_8l("al", "rax"),
+    // many more...
+};
+```
+
+Now everything we've done so far is totally possible in C++ with `consteval`/`constinit`. The key difference is the next part, defining the enum of all of the register names. In C++ this is not possible with `consteval`/`constinit` so you are forced to use macros. But in Zig things are a bit different. 
+
+Comptime gives us full access to type information- allowing us to inspect types and even construction them using zig code.
+
+Check this out:
+
+```zig
+pub const RegisterId = comptime blk: {
+    const len = registerDefinitions len;
+    var fields: [len]std.builtin.Type.EnumField = undefined;
+
+    for (0..len) |i| {
+        fields[i] = .{
+            .name = registerDefinitions[i].name ++ [_:0]u8{0},
+            .value = i,
+        };
+    }
+
+    break :blk @Type(.{ .@"enum" = .{
+        .decls = &.{},
+        .tag_type = u16,
+        .fields = &fields,
+        .is_exhaustive = true,
+    } });
+};
+
+test {
+  // It just works like any other enum...
+  var id = RegisterId.rax;
+  id = RegisterId.ax;
+}
+```
+
+Using the `@Type` function we can construct a type at compile time- that's pretty cool. Also, notice the use of Zig's block-expressions (`blk:`, `break blk: value` syntax) to assign the result of a block of code (in this case a `comptime` block) to a value.
+
+Now with the enum defined, we can create a new struct for the final `RegisterInfo` we are looking for:
+
+```zig
+const RegisterInfo = struct {
+  id: Id,
+  name: []const u8,
+  dwarf_id: ?u32,
+  size: usize,
+  offset: usize,
+  type: Type,
+  format: Format,
+};
+```
+
+Then the final piece is basically looping over the register definitions and deriving the `RegisterInfo` values from them:
+
+(theres a lot of detail in this next snippet I didn't really cover but just try to takeaway how all of this "processing" logic can be completely seperate from the core "definiton" of the raw data of a register)
+
+```zig
+const AllRegisters: [registerDefinitions.len]RegisterInfo = blk: {
+    const len = registerDefinitions.len;
+    var infos: [len]RegisterInfo = undefined;
+
+    const base_gpr_offset = @offsetOf(CSysUser.user, "regs");
+    const base_fpr_offset = @offsetOf(CSysUser.user, "i387");
+    const base_dr_offset = @offsetOf(CSysUser.user, "u_debugreg");
+
+    for (registerDefinitions, 0..) |def, i| {
+        const final_offset = switch (def.offset_calc) {
+            .gpr => |field_name| base_gpr_offset + @offsetOf(CSysUser.user_regs_struct, field_name),
+            .sub_gpr => |sub_info| base_gpr_offset + @offsetOf(CSysUser.user_regs_struct, sub_info.super_reg_field) + sub_info.byte_offset,
+            .fpr => |fpr_info| switch (fpr_info) {
+                .field => |field_name| base_fpr_offset + @offsetOf(CSysUser.user_fpregs_struct, field_name),
+                .offset => |offset| base_fpr_offset + @offsetOf(CSysUser.user_fpregs_struct, offset.base) + offset.offset,
+            },
+            .dr => |dr_num| base_dr_offset + dr_num * @sizeOf(c_longlong),
+        };
+
+        const final_size = switch (def.size) {
+            .raw => |val| val,
+            .fp_reg => |name| blk2: {
+                const fpregs_typeinfo = @typeInfo(CSysUser.user_fpregs_struct);
+                for (fpregs_typeinfo.@"struct".fields) |field| {
+                    if (std.mem.eql(u8, field.name, name)) {
+                        break :blk2 @sizeOf(field.type);
+                    }
+                }
+                @compileError(std.fmt.comptimePrint("Field {s} not found in user_fpregs_struct", .{name}));
+            },
+        };
+
+        infos[i] = .{
+            .id = @enumFromInt(i),
+            .name = def.name,
+            .dwarf_id = def.dwarf_id,
+            .size = final_size,
+            .offset = final_offset,
+            .type = def.reg_type,
+            .format = def.reg_format,
+        };
+    }
+
+    break :blk infos;
+};
+```
+
+Also check out the `final_size` calculation in the middle of the snippet. Here we need to get the size of a specific field in the `user_fpregs_struct` that we have defined with a string earlier in our register definition.
+
+To do this we can inspect the type of `user_fpregs_struct`, loop over its fields and compare the field's name to the name we are expecting and return the size of that field's type. If no field is found we can use `@compileError` to halt things.
+
+And that's basically it. The end result is the same: an enum of all the id's and a array of all of the `RegisterInfo`s.
+
 ## Footnotes
 
 1. It's actually not even all of them- just the ones the book covers... man x86 is old and complex
