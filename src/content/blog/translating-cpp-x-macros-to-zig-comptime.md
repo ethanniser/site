@@ -353,33 +353,49 @@ fn gpr_32(name: []const u8, super_field: []const u8) RegisterDefinition {
     };
 }
 fn gpr_16(name: []const u8, super_field: []const u8) RegisterDefinition {
-    return .{
-        .name = name,
-        .dwarf_id = null,
-        .size = .{ .raw = 2 },
-        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field } },
-        .reg_type = .sub_gpr,
-        .reg_format = .uint,
-    };
+    // ... 
 }
 fn gpr_8h(name: []const u8, super_field: []const u8) RegisterDefinition {
+    // ... 
+}
+fn gpr_8l(name: []const u8, super_field: []const u8) RegisterDefinition {
+    // ... 
+}
+fn fpr(
+    name: []const u8,
+    dwarf: ?u32,
+    field: []const u8,
+) RegisterDefinition {
     return .{
         .name = name,
-        .dwarf_id = null,
-        .size = .{ .raw = 1 },
-        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field, .byte_offset = 1 } },
-        .reg_type = .sub_gpr,
+        .dwarf_id = dwarf,
+        .size = .{ .fp_reg = field },
+        .offset_calc = .{ .fpr = .{ .field = field } },
+        .reg_type = .fpr,
         .reg_format = .uint,
     };
 }
-fn gpr_8l(name: []const u8, super_field: []const u8) RegisterDefinition {
+fn fp_st(num: u32) RegisterDefinition {
     return .{
-        .name = name,
-        .dwarf_id = null,
-        .size = .{ .raw = 1 },
-        .offset_calc = .{ .sub_gpr = .{ .super_reg_field = super_field } },
-        .reg_type = .sub_gpr,
-        .reg_format = .uint,
+        .name = "st" ++ std.fmt.comptimePrint("{d}", .{num}),
+        .dwarf_id = 33 + num,
+        .size = .{ .raw = 16 },
+        .offset_calc = .{ .fpr = .{ .offset = .{ .base = "st_space", .offset = num * 16 } } },
+        .reg_type = .fpr,
+        .reg_format = .long_double,
+    };
+}
+fn fp_mm(num: u32) RegisterDefinition {
+    // ...
+}
+fn fp_xmm(num: u32) RegisterDefinition {
+    return .{
+        .name = "xmm" ++ std.fmt.comptimePrint("{d}", .{num}),
+        .dwarf_id = 17 + num,
+        .size = .{ .raw = 16 },
+        .offset_calc = .{ .fpr = .{ .offset = .{ .base = "xmm_space", .offset = num * 16 } } },
+        .reg_type = .fpr,
+        .reg_format = .vector,
     };
 }
 ```
@@ -397,7 +413,14 @@ pub const registerDefinitions = [_]RegisterDefinition{
     .gpr_8h("ah", "rax"),
     // ... 
     .gpr_8l("al", "rax"),
-    // many more...
+    // ... 
+    .fpr("fcw", 65, "cwd"),
+    // ... 
+    .fp_st(1),
+    // ... 
+    .fp_mm(6),
+    // ... 
+    .fp_xmm(15),
 };
 ```
 
