@@ -508,6 +508,29 @@ To do this we can inspect the type of `user_fpregs_struct`, loop over its fields
 
 And that's basically it. The end result is the same: an enum of all the id's and a array of all of the `RegisterInfo`s.
 
+## Comparison
+
+I'll start this section by identifying all of the major flaws with C/C++ macros:
+
+- Untyped
+- Very difficult to debug
+- Horrible compiler error messages if you mess up syntax somewhere
+- Only have access to a very constrained set of operations on macro-level *stuff* (symbols/types), basically just symbol concatination and stringification
+
+On the other hand with Zig's comptime:
+
+- It's *just zig*, meaning you can do basically anything (that doesn't involve side effects)
+- Fully typed (again it's just zig)
+- Great error messages (the same as when writing normal code)
+- Simple `printf` style debugging with `@compileLog`
+- Full type reflection, type creation, and ability to use types as values
+
+## Conclusion
+
+As soon as I saw some decently complex macro usage come up in the book, I got [super excited](https://x.com/ethanniser/status/1908263929635025348). Comptime is one of the most exciting parts about Zig and I had never used it outside small trivial examples up until this project.
+
+If your interested in checking out the full source code you can find my implementation [here](https://github.com/ethanniser/zdb/blob/a3a62081024821175b305c25f8b69d37676d443d/src/registers/info.zig) and the C++ implementation [here](https://github.com/TartanLlama/sdb/blob/369fb6b5587c931c2741a62952a3e90f5d73b50a/include/libsdb/register_info.hpp).
+
 ## Footnotes
 
 1. It's actually not even all of them- just the ones the book covers... man x86 is old and complex
