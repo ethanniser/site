@@ -4,6 +4,7 @@
   - probably just move to a json content collection tbh
   - maybe make two col square card grid?
   - inspo: https://www.shel.win/projects
+  https://nerdy.dev/
 - [ ] add twoslash highlighting
   - [ ] write blog post on how after bc its hard and no one has
 - [ ] "external" page for links to other sites
@@ -11,3 +12,4 @@
   - [x] external videos (done but jank)
   - ...
 - [ ] move videos to a json content collection
+- add cv?
