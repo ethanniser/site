@@ -1,13 +1,23 @@
 ---
 import Main from "@/components/Main.astro";
 import Page from "@/layouts/Page.astro";
-import Content from "@/components/pages/index.mdx";
+import RecentPosts from "@/components/RecentPosts.astro";
+import RecentVideos from "@/components/RecentVideos.astro";
+// import Content from "@/components/pages/index.mdx" // add back when issue #11531 is fixed
 ---
 
 <Page>
   <Main title="Home">
     <article class="prose">
-      <Content />
+      <h2>About</h2>
+      <p>
+        I’m a developer and content creator currently studying at the University
+        of Florida.
+      </p>
+      <h2>Recent Posts</h2>
+      <RecentPosts />
+      <h2>Recent Videos</h2>
+      <RecentVideos />
     </article>
   </Main>
 </Page>
