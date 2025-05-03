@@ -1,6 +1,5 @@
 ---
 title: "Hello World"
-description: "I finally made a site"
 pubDate: "Jul 09 2024"
 ---
 

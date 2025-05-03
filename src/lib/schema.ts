@@ -1,6 +1,17 @@
 import { z } from "zod";
+import { Schema } from "effect";
 
-export type Video = z.output<typeof ytVideoItem>;
+class Video extends Schema.TaggedClass<Video>("Video")("Video", {}) {}
+class Blog extends Schema.TaggedClass<Blog>("Blog")("Blog", {}) {}
+class Talk extends Schema.TaggedClass<Talk>("Talk")("Talk", {}) {}
+
+const videoSchema = z.object({
+  title: z.string(),
+  date: z.date(),
+  thumbnail: z.string(),
+  tags: z.array(z.string()),
+});
+
 export const ytVideoItem = z.object({
   kind: z.literal("youtube#searchResult"),
   etag: z.string(),

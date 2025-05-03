@@ -1,16 +1,8 @@
+- Unified content source by tag
+  - redo home page with "feed" of tagged generic cards
+  - unify tag page under all content
 - Fix internal link flash on page change on mobile
-- [ ] tags for projects page
-  - probably just move to a json content collection tbh
-  - maybe make two col square card grid?
-  - inspo: https://www.shel.win/projects
-  https://nerdy.dev/
-- [ ] add twoslash highlighting
-  - [ ] write blog post on how after bc its hard and no one has
-- [ ] "external" page for links to other sites
-  - external blogs
-  - [x] external videos (done but jank)
-  - ...
-- [ ] move videos to a json content collection
+- add twoslash highlighting
+  - write blog post on how after bc its hard and no one has
 - add cv?
-- add talk link
 - "reads" page https://amyyzhou.notion.site/Hey-I-m-Amy-Zhou-1b80c95bd9fd80ddb419cc71cadcd536?p=1bf0c95bd9fd8034a7d2d8e63dac0136&pm=c

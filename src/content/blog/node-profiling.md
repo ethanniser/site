@@ -1,6 +1,5 @@
 ---
 title: "Profiling Node.js Applications"
-description: "How to profile Node.js applications"
 pubDate: "Feb 16 2025"
 tags: ["node", "performance"]
 ---

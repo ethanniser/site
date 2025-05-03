@@ -1,6 +1,5 @@
 ---
 title: "Effect Best Practices"
-description: "Some tips to write good Effect code"
 pubDate: "Aug 02 2024"
 updatedDate: "Sep 18 2024"
 tags: ["effect"]
