@@ -22,12 +22,12 @@ const { tag } = Astro.props;
 ---
 
 <Page
-  title={`Blog - ${tag} | ${SITE_TITLE}`}
-  description={`All posts tagged with ${tag}`}
+  title={`Tags - ${tag} | ${SITE_TITLE}`}
+  description={`All items tagged with ${tag}`}
 >
-  <h1 class="text-4xl font-bold">{`Blog - ${tag}`}</h1>
+  <h1 class="text-4xl font-bold">{`Tags - ${tag}`}</h1>
   <div class="py-1"></div>
-  <a href="/blog/tags" class="underline md:no-underline md:hover:underline"
+  <a href="/tags" class="underline md:no-underline md:hover:underline"
     >See all tags</a
   >
   <div class="py-3"></div>

@@ -1,0 +1,35 @@
+---
+import Main from "@/components/Main.astro";
+import Page from "@/layouts/Page.astro";
+import ItemCard from "@/components/ItemCard.astro";
+---
+
+<Page>
+  <Main title="Home">
+    <div class="w-full max-w-96">
+      <ItemCard title="foo" />
+      <div class="py-3"></div>
+      <ItemCard
+        title="foo"
+        date={new Date()}
+        link="https://youtube.com/@ethanniser"
+      />
+      <div class="py-3"></div>
+      <ItemCard
+        _tag="Video"
+        title="foo"
+        img="https://i.ytimg.com/vi/S1YKKpLR7XI/hqdefault.jpg"
+        tags={["foo", "bar"]}
+      />
+      <div class="py-3"></div>
+      <ItemCard
+        title="foo"
+        date={new Date()}
+        tags={["foo", "bar"]}
+        highlightTag="foo"
+      />
+      <div class="py-3"></div>
+      <ItemCard title="foo" date={new Date()} _tag="BlogPost" />
+    </div>
+  </Main>
+</Page>
