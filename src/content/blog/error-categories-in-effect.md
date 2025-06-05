@@ -1,5 +1,6 @@
 ---
 title: "Error Categories in Effect"
+description: "A pattern for grouping errors into categories in Effect"
 pubDate: "Jun 05 2025"
 tags: ["effect"]
 ---
