@@ -51,7 +51,9 @@ try {
 }
 ```
 
-However this doesn't work in Effect because javascript does not support multiple inheritance, and we are already extending the `TaggedError` class from Effect! Oh what shall we do...
+However this doesn't work in Effect because javascript does not support multiple inheritance, and we are already extending the `TaggedError` class from Effect! We could *try* to make an intermediate class that extends `TaggedError` that we can again extend from, but there's a small problem: the types for `TaggedError` are straight up [wizardy](https://github.com/Effect-TS/effect/blob/bda9ebd07abdac07a58cfc1d327e9b9cdfa83f8f/packages/effect/src/Schema.ts#L8806-L8816). Good luck making a fully functional generic wrapper for that.
+
+Good thing there is another way...
 
 ## Mixins (and composition) to the rescuse
 
