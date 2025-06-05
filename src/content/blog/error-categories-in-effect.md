@@ -2,6 +2,7 @@
 title: "Error Categories in Effect"
 description: "A pattern for grouping errors into categories in Effect"
 pubDate: "Jun 05 2025"
+updatedDate: "Jun 05 2025"
 tags: ["effect"]
 ---
 
@@ -203,3 +204,5 @@ This pattern is pretty neat, decently practical and doesn't impact any of the ex
 Check it out and let me know what you think. Here is a [link](https://effect.website/play#639a05accaf7) to a full example in the Effect playground.
 
 Thank you to Tim Smart for his feedback on this pattern and for authoring the `catchCategory` function.
+
+*UPDATE*: Michael Arnaldi shared his [own version of this pattern](https://gist.github.com/mikearnaldi/4e5c0be9c52fa16a119da95a32c62b89) that works with string literals and has some other niceties like being able to catch multiple categories at once
