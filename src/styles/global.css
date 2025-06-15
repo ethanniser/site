@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "./twoslash.css";
 @config '../../tailwind.config.mjs';
 
 /*
