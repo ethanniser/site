@@ -5,7 +5,9 @@ import { SITE_TITLE } from "@/lib/consts";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const collection = await getCollection("blog");
+  const collection = (await getCollection("blog")).filter(
+    (post) => !post.data.draft,
+  );
   const tags = new Set<string>();
   for (const post of collection) {
     for (const tag of post.data.tags ?? []) {

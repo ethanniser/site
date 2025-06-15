@@ -22,7 +22,7 @@ function groupBy<K extends PropertyKey, T>(
   );
 }
 
-const posts = await getCollection("blog");
+const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
 const postPerTag = posts.flatMap(
   (post) => post.data.tags?.map((tag) => ({ post, tag })) ?? [],
 );
