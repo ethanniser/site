@@ -2,6 +2,8 @@
 import { render } from "astro:content";
 import BlogPost from "@/layouts/BlogPost.astro";
 import { getCollection } from "astro:content";
+import { ogImage } from "@reunmedia/astro-og-images";
+import blogPostTemplate from "@/og/template";
 
 export async function getStaticPaths() {
   const collection = await getCollection("blog");
@@ -13,8 +15,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const ogImageUrl = await ogImage(
+  blogPostTemplate({
+    title: post.data.title,
+    date: post.data.pubDate,
+    tags: post.data.tags ?? [],
+  }),
+);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} ogImage={ogImageUrl}>
   <Content />
 </BlogPost>

@@ -20,6 +20,7 @@
     "@astrojs/react": "4.2.6",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.3.1",
+    "@reunmedia/astro-og-images": "^0.2.0",
     "@shikijs/twoslash": "^2.5.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.4",

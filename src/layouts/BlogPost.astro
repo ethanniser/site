@@ -5,12 +5,18 @@ import Page from "./Page.astro";
 import { SITE_TITLE } from "@/lib/consts";
 import TagRow from "@/components/TagRow.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  ogImage?: string | undefined;
+};
 
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, ogImage } = Astro.props;
 ---
 
-<Page title={`${title} | ${SITE_TITLE} | Blog`} description={description}>
+<Page
+  title={`${title} | ${SITE_TITLE} | Blog`}
+  description={description}
+  ogImage={ogImage}
+>
   <h1 class="text-4xl font-bold">
     <span transition:name={title}>{title}</span>
   </h1>
