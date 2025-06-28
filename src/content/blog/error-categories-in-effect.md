@@ -6,7 +6,7 @@ updatedDate: "Jun 05 2025"
 tags: ["effect"]
 ---
 
-Errors in Effect often take the form of `TaggedError`s which extend the global `Error` class, have a unique string `_tag` and additional custom properties:
+Errors in Effect often take the form of `TaggedError`s, which extend the global `Error` class and have a unique string `_tag` along with additional custom properties:
 
 ```ts twoslash
 import { Effect, Schema as S } from "effect";
@@ -28,9 +28,9 @@ const handled = foo.pipe(
 
 ## The Problem
 
-While handling errors one at a time by their `_tag` is very easy to do by default, this level of granularity can become difficult to manage as the number of errors in your application grows. Often, you simply want to group errors into "categories" which you can discriminate against.
+While handling errors individually by their `_tag` is very easy to do by default, this level of granularity can become difficult to manage as the number of errors in your application grows. Often, you simply want to group errors into "categories" which you can discriminate against.
 
-Outside of Effect, inheritance is the common pattern by which to implement this. Errors in a category share a base class, and `instanceof` can be used to discriminate:
+Outside of Effect, inheritance is the common pattern by which to implement this. Errors in the same category share a base class, and `instanceof` can be used to discriminate:
 
 ```ts twoslash
 abstract class CategoryA extends Error {}
@@ -54,13 +54,13 @@ try {
 }
 ```
 
-However this doesn't work in Effect because javascript does not support multiple inheritance, and we are already extending the `TaggedError` class from Effect! We could _try_ to make an intermediate class that extends `TaggedError` that we can again extend from, but there's a small problem: the types for `TaggedError` are straight up [wizardy](https://github.com/Effect-TS/effect/blob/bda9ebd07abdac07a58cfc1d327e9b9cdfa83f8f/packages/effect/src/Schema.ts#L8806-L8816). Good luck making a fully functional generic wrapper for that.
+However, this doesn't work in Effect, because javascript does not support multiple inheritance, and we are already extending the `TaggedError` class from Effect! We could _try_ to make an intermediate class that extends `TaggedError` that we can again extend from, but there's a small problem: the types for `TaggedError` are straight up [wizardy](https://github.com/Effect-TS/effect/blob/bda9ebd07abdac07a58cfc1d327e9b9cdfa83f8f/packages/effect/src/Schema.ts#L8806-L8816). Good luck making a fully functional generic wrapper for that.
 
 Good thing there is another way...
 
 ## Mixins (and composition) to the rescuse
 
-Mixins, despite their fancy name, are remarkably simple. They are basically functions that take in a class and return a new class. Surprisingly this is a pattern that has [a whole page to it's own](https://www.typescriptlang.org/docs/handbook/mixins.html) in the official typescript docs.
+Mixins, despite their fancy name, are remarkably simple. They are basically functions that take in a class and return a new class. Surprisingly, this is a pattern that has [a whole page to itself](https://www.typescriptlang.org/docs/handbook/mixins.html) in the official typescript docs.
 
 ```ts twoslash
 type Class<T = {}> = new (...args: any[]) => T;
@@ -80,7 +80,7 @@ const e = new MyError();
 console.log(e.message2); // "hihi"
 ```
 
-There's a couple cool things about this. First is that everything is fully typed- typescript can infer the type of the class returned from the mixin and merge it with any class you extend from it, and we can even provide constraints on what classes can be passed into the mixin.
+There are a couple of cool things about this. First, everything is fully typed- typescript can infer the type of the class returned from the mixin and merge it with any class you extend from it, and we can even provide constraints on what classes can be passed into the mixin.
 
 Also because a mixin is _just a function_, we can do all sorts of cool functional things like composition. I'm sure you've heard of "_composition over inheritance_" before and this pattern is that saying to a T.
 
@@ -109,9 +109,9 @@ console.log(e.one && e.two); // true
 
 ## Back to categories
 
-Ok so mixins are a cool pattern, but how does this help us with our error categorization problem?
+Ok, so mixins are a cool pattern. But how does this help us with our error categorization problem?
 
-Well we can start by making a unique interface for each category:
+Well, we can start by making a unique interface for each category:
 
 ```ts twoslash
 const CategoryA = Symbol.for("CategoryA");
@@ -126,7 +126,7 @@ interface B {
 }
 ```
 
-Then we can create a mixin which adds the necessary properties for the interface to the provided class:
+Then, we can create a mixin that adds the necessary properties for each interface to the provided class:
 
 ```ts twoslash
 type Class<T = {}> = new (...args: any[]) => T;
@@ -158,7 +158,7 @@ const BMixin = <T extends Class<{ x: number }>>(Base: T) =>
   };
 ```
 
-Now we can take our `TaggedError`s from before, and just `pipe` them into the category mixins they belong to:
+Now we can take our `TaggedError`s from before and just `pipe` them into the category mixins they belong to:
 
 ```ts twoslash
 import { Schema } from "effect";
@@ -217,7 +217,7 @@ const hasCategory =
   };
 ```
 
-Next, using that guard we can write a `catchCategory` function which works just like `catchTag` but on categories instead of tags. Just like `catchTag` it properly narrows the output type to not include caught errors:
+Next, using that guard, we can write a `catchCategory` function, which works just like `catchTag`, but on categories instead of tags. Just like `catchTag`, it properly narrows the output type to exclude caught errors:
 
 ```ts twoslash
 import { Effect, Predicate, Schema } from "effect";
