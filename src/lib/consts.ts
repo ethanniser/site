@@ -4,7 +4,7 @@ export const TWITTER_LINK = "https://twitter.com/ethanniser";
 export const GITHUB_LINK = "https://github.com/ethanniser";
 export const YOUTUBE_LINK = "https://www.youtube.com/@ethanniser";
 export const LINKEDIN_LINK = "https://www.linkedin.com/in/ethanniser/";
-export const EMAIL_LINK = "mailto:ethan@niser.com";
+export const EMAIL_LINK = "mailto:ethan@ethanniser.dev";
 export type JS_KEYWORD = (typeof JS_KEYWORDS)[number];
 export const JS_KEYWORDS = [
   "break",
