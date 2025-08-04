@@ -57,7 +57,6 @@ export async function fetchVideosFromAPI(): Promise<Video[]> {
     throw new Error("failed to fetch videos", { cause: await res.text() });
   }
   const json = await res.json();
-  await Bun.write("./src/lib/data/videos2.json", JSON.stringify(json));
   const parsed = ytVideoRes.parse(json);
 
   const videos = parsed.items
