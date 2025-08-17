@@ -2,6 +2,7 @@
 title: "A Clock That Doesn't Snap"
 description: "Committing prehydration crimes"
 pubDate: "Aug 17 2025"
+updatedDate: "Aug 17 2025"
 tags: ["react"]
 ---
 
@@ -206,7 +207,28 @@ function InlineScript() {
 }
 ```
 
-Second is that it is _super important_ that whatever logic you have to derive your ui state from your application state **must** be kept in sync between the component body and the inline script tag. Ideally you could move that logic out into a function and share it between the two, but remember you can't import anything into the script tag! So that's not really an option.
+Another great example for this pattern is making sure that text input state doesn't get "wiped out" by hydration. This doesn't require a script tag, instead just initializing the state with the value from the DOM.
+
+```tsx
+function Input() {
+  const [value, setValue] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.getElementById("input")?.value || "";
+    }
+    return "";
+  });
+
+  return (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      id="input"
+    />
+  );
+}
+```
+
+Second, it is _super important_ that whatever logic you have to derive your ui state from your application state **must** be kept in sync between the component body and the inline script tag. Ideally you could move that logic out into a function and share it between the two, but remember you can't import anything into the script tag! So that's not really an option.
 
 If you are using Next.js, the [`instrumentation-client.js`](https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation-client) file can actually help with this, as it will resolve imports and bundle any code, while still running before hydration. However this runs after the entire HTML document has loaded, which may not be fast enough to run before first paint (I like to put these script tags as close after the elements they touch as possible).
 
