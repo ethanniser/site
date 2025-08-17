@@ -9,8 +9,16 @@ type Props = CollectionEntry<"blog">["data"] & {
   ogImage?: string | undefined;
 };
 
-const { title, description, pubDate, updatedDate, tags, ogImage, draft, substack } =
-  Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  tags,
+  ogImage,
+  draft,
+  substack,
+} = Astro.props;
 ---
 
 <Page
@@ -68,17 +76,21 @@ const { title, description, pubDate, updatedDate, tags, ogImage, draft, substack
   <div class="py-1"></div>
   <TagRow tags={tags} articleName={title} />
   <div class="py-3"></div>
-  {substack && <hr />
-  <div class="py-3">
-    <div class="prose">
-      <i>
-        This is a cross-post from my Substack, <a
-          href={substack}
-          >Statically Typed</a
-        >.
-      </i>
-    </div>
-  </div>}
+  {
+    substack && (
+      <>
+        <hr />
+        <div class="py-3">
+          <div class="prose">
+            <i>
+              This is a cross-post from my Substack,{" "}
+              <a href={substack}>Statically Typed</a>.
+            </i>
+          </div>
+        </div>
+      </>
+    )
+  }
   <hr />
   <div class="py-3"></div>
   <article class="prose">
