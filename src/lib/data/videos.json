@@ -1,1 +1,386 @@
-[{"kind":"youtube#searchResult","etag":"F5ik1MgBXjbVGwn0vyAA4xS_uxE","id":{"kind":"youtube#video","videoId":"NGBijq6cdfc"},"snippet":{"publishedAt":"2025-08-04T02:02:02Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Why I stopped using react query (and you might soon too)","description":"Thanks for watching Effect: https://effect.website/ Effect rx: https://github.com/tim-smart/effect-rx Effect optimistic updates demo: ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/NGBijq6cdfc/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/NGBijq6cdfc/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/NGBijq6cdfc/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2025-08-04T02:02:02.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"LvfBfb5dgArs_Sr4ZQPlgmxgQCw","id":{"kind":"youtube#video","videoId":"S1YKKpLR7XI"},"snippet":{"publishedAt":"2025-03-09T00:34:55Z","channelId":"UCFvPgPdb_emE_bpMZq6hmJQ","title":"You really need to try Effect ft. Ethan Niser","description":"Effect is one of those libraries I've been putting off learning for a while. It's an absurdly powerful, yet different way to write ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/S1YKKpLR7XI/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/S1YKKpLR7XI/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/S1YKKpLR7XI/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Davis","liveBroadcastContent":"none","publishTime":"2025-03-09T00:34:55.000Z"},"external":true},{"kind":"youtube#searchResult","etag":"K8374KukRwVxE_znQt1CoRdy98E","id":{"kind":"youtube#video","videoId":"vtotu8p9DWw"},"snippet":{"publishedAt":"2024-11-02T22:02:08Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"The secret to why React feels so fast","description":"HUGE SHOUTOUT TO @t3dotgg FOR LETTING ME RECORD IN HIS AMAZING STUDIO But concurrency is really cool- hopefully ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/vtotu8p9DWw/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/vtotu8p9DWw/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/vtotu8p9DWw/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2024-11-02T22:02:08.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"_zI3qgPeELijSTdxfzakGnG9haI","id":{"kind":"youtube#video","videoId":"1U44SbOa7rE"},"snippet":{"publishedAt":"2024-08-12T02:45:59Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"The PROBLEM With Error Handling in Typescript (and how to fix it)","description":"HUGE SHOUTOUT TO @t3dotgg FOR LETTING ME RECORD IN HIS AMAZING STUDIO (thats why the audio sounds so good.","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/1U44SbOa7rE/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/1U44SbOa7rE/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/1U44SbOa7rE/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2024-08-12T02:45:59.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"eFFbxBbcywb6rK1vJGKQwzw7NkQ","id":{"kind":"youtube#video","videoId":"ibxUIL_-LlA"},"snippet":{"publishedAt":"2024-07-23T02:16:31Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"What is Concurrency? And how can Structured Concurrency make it easier?","description":"Thanks for watching! \"Go statement considered harmful\" blog post (READ THIS!)","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/ibxUIL_-LlA/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/ibxUIL_-LlA/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/ibxUIL_-LlA/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2024-07-23T02:16:31.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"myNX0qkF4aAZVHFBfRYEBdChSC4","id":{"kind":"youtube#video","videoId":"NZpPMlSAez0"},"snippet":{"publishedAt":"2023-09-28T16:00:07Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Build a Multi-Tenant B2B App With BUN and HTMX - FULL COURSE","description":"A complete tutorial building a multitenant B2B SaaS application deployed to the edge with the BETH Stack. PROJECT REPO- ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/NZpPMlSAez0/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/NZpPMlSAez0/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/NZpPMlSAez0/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-09-28T16:00:07.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"DsM34iDuAYtEYoH1XML0tqrT94Q","id":{"kind":"youtube#video","videoId":"aDYYn9R-JyE"},"snippet":{"publishedAt":"2023-09-10T21:17:11Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"The Bun 1.0 Tech Stack","description":"BETH Stack == BEST Stack ----------- HTMX View Transitions App - https://htmx-vt-test.fly.dev/ Source Code ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/aDYYn9R-JyE/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/aDYYn9R-JyE/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/aDYYn9R-JyE/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-09-10T21:17:11.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"i0mdG1Y7AVoRS7aviG_nG68CCRA","id":{"kind":"youtube#video","videoId":"kYAjBvt03xw"},"snippet":{"publishedAt":"2023-08-21T02:07:35Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Theo should use Effect","description":"Thanks for watching! Theo's Video: https://www.youtube.com/watch?v=f2Z1v3cqgDI Live Example Site: ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/kYAjBvt03xw/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/kYAjBvt03xw/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/kYAjBvt03xw/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-08-21T02:07:35.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"Efh3sBeaq0RZbY0dmF4nI4CZPFU","id":{"kind":"youtube#video","videoId":"fTN8BX5qj6s"},"snippet":{"publishedAt":"2023-08-07T18:32:53Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Effect for Beginners","description":"Thank you to the Effect team for sponsoring this video ---------------------------- LINK TO GITHUB REPO WITH ALL CODE: ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/fTN8BX5qj6s/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/fTN8BX5qj6s/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/fTN8BX5qj6s/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-08-07T18:32:53.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"IL5NPtUK0l-QvGYRENn3YV5iweY","id":{"kind":"youtube#video","videoId":"cpzowDDJj24"},"snippet":{"publishedAt":"2023-07-18T22:45:48Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"The BETH Stack: Build Hypermedia-Driven Web Apps with Great DX and Performance","description":"An opinionated way to build web apps in 2023 ------------- LIVE SITE (down rn because I needed the database for another project ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/cpzowDDJj24/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/cpzowDDJj24/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/cpzowDDJj24/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-07-18T22:45:48.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"Pm9oNv0yHT0uc_QrISs-k1aHlSQ","id":{"kind":"youtube#video","videoId":"4ARWCmnjO0w"},"snippet":{"publishedAt":"2023-07-15T06:48:46Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Effect: Typescript That Scales","description":"YOU ARE FREE TO REACT TO THIS VIDEO ------------------ Effect Docs: https://effect.website Effect Discord: ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/4ARWCmnjO0w/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/4ARWCmnjO0w/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/4ARWCmnjO0w/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-07-15T06:48:46.000Z"},"external":false},{"kind":"youtube#searchResult","etag":"3-rQGtnJuWpE1Dz7t8TmEBf_MxM","id":{"kind":"youtube#video","videoId":"SloZE4i4Zfk"},"snippet":{"publishedAt":"2023-07-08T01:03:07Z","channelId":"UC1OBuTOu68SmE_8LfquGbSA","title":"Effect: Next-Generation Typescript","description":"YOU ARE FREE TO REACT TO THIS VIDEO ------------------ Effect Docs: https://effect.website Effect Discord: ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/SloZE4i4Zfk/default.jpg","width":120,"height":90},"medium":{"url":"https://i.ytimg.com/vi/SloZE4i4Zfk/mqdefault.jpg","width":320,"height":180},"high":{"url":"https://i.ytimg.com/vi/SloZE4i4Zfk/hqdefault.jpg","width":480,"height":360}},"channelTitle":"Ethan Niser","liveBroadcastContent":"none","publishTime":"2023-07-08T01:03:07.000Z"},"external":false}]
+[
+  {
+    "kind": "youtube#searchResult",
+    "etag": "F5ik1MgBXjbVGwn0vyAA4xS_uxE",
+    "id": { "kind": "youtube#video", "videoId": "NGBijq6cdfc" },
+    "snippet": {
+      "publishedAt": "2025-08-04T02:02:02Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Why I stopped using react query (and you might soon too)",
+      "description": "Thanks for watching Effect: https://effect.website/ Effect rx: https://github.com/tim-smart/effect-rx Effect optimistic updates demo: ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NGBijq6cdfc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NGBijq6cdfc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NGBijq6cdfc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2025-08-04T02:02:02.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "LvfBfb5dgArs_Sr4ZQPlgmxgQCw",
+    "id": { "kind": "youtube#video", "videoId": "S1YKKpLR7XI" },
+    "snippet": {
+      "publishedAt": "2025-03-09T00:34:55Z",
+      "channelId": "UCFvPgPdb_emE_bpMZq6hmJQ",
+      "title": "You really need to try Effect ft. Ethan Niser",
+      "description": "Effect is one of those libraries I've been putting off learning for a while. It's an absurdly powerful, yet different way to write ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/S1YKKpLR7XI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/S1YKKpLR7XI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/S1YKKpLR7XI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Davis",
+      "liveBroadcastContent": "none",
+      "publishTime": "2025-03-09T00:34:55.000Z"
+    },
+    "external": true
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "K8374KukRwVxE_znQt1CoRdy98E",
+    "id": { "kind": "youtube#video", "videoId": "vtotu8p9DWw" },
+    "snippet": {
+      "publishedAt": "2024-11-02T22:02:08Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "The secret to why React feels so fast",
+      "description": "HUGE SHOUTOUT TO @t3dotgg FOR LETTING ME RECORD IN HIS AMAZING STUDIO But concurrency is really cool- hopefully ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vtotu8p9DWw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vtotu8p9DWw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vtotu8p9DWw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2024-11-02T22:02:08.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "_zI3qgPeELijSTdxfzakGnG9haI",
+    "id": { "kind": "youtube#video", "videoId": "1U44SbOa7rE" },
+    "snippet": {
+      "publishedAt": "2024-08-12T02:45:59Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "The PROBLEM With Error Handling in Typescript (and how to fix it)",
+      "description": "HUGE SHOUTOUT TO @t3dotgg FOR LETTING ME RECORD IN HIS AMAZING STUDIO (thats why the audio sounds so good.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1U44SbOa7rE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1U44SbOa7rE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1U44SbOa7rE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2024-08-12T02:45:59.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "eFFbxBbcywb6rK1vJGKQwzw7NkQ",
+    "id": { "kind": "youtube#video", "videoId": "ibxUIL_-LlA" },
+    "snippet": {
+      "publishedAt": "2024-07-23T02:16:31Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "What is Concurrency? And how can Structured Concurrency make it easier?",
+      "description": "Thanks for watching! \"Go statement considered harmful\" blog post (READ THIS!)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ibxUIL_-LlA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ibxUIL_-LlA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ibxUIL_-LlA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2024-07-23T02:16:31.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "myNX0qkF4aAZVHFBfRYEBdChSC4",
+    "id": { "kind": "youtube#video", "videoId": "NZpPMlSAez0" },
+    "snippet": {
+      "publishedAt": "2023-09-28T16:00:07Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Build a Multi-Tenant B2B App With BUN and HTMX - FULL COURSE",
+      "description": "A complete tutorial building a multitenant B2B SaaS application deployed to the edge with the BETH Stack. PROJECT REPO- ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NZpPMlSAez0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NZpPMlSAez0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NZpPMlSAez0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-09-28T16:00:07.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "DsM34iDuAYtEYoH1XML0tqrT94Q",
+    "id": { "kind": "youtube#video", "videoId": "aDYYn9R-JyE" },
+    "snippet": {
+      "publishedAt": "2023-09-10T21:17:11Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "The Bun 1.0 Tech Stack",
+      "description": "BETH Stack == BEST Stack ----------- HTMX View Transitions App - https://htmx-vt-test.fly.dev/ Source Code ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aDYYn9R-JyE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aDYYn9R-JyE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aDYYn9R-JyE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-09-10T21:17:11.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "i0mdG1Y7AVoRS7aviG_nG68CCRA",
+    "id": { "kind": "youtube#video", "videoId": "kYAjBvt03xw" },
+    "snippet": {
+      "publishedAt": "2023-08-21T02:07:35Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Theo should use Effect",
+      "description": "Thanks for watching! Theo's Video: https://www.youtube.com/watch?v=f2Z1v3cqgDI Live Example Site: ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kYAjBvt03xw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kYAjBvt03xw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kYAjBvt03xw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-08-21T02:07:35.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "Efh3sBeaq0RZbY0dmF4nI4CZPFU",
+    "id": { "kind": "youtube#video", "videoId": "fTN8BX5qj6s" },
+    "snippet": {
+      "publishedAt": "2023-08-07T18:32:53Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Effect for Beginners",
+      "description": "Thank you to the Effect team for sponsoring this video ---------------------------- LINK TO GITHUB REPO WITH ALL CODE: ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fTN8BX5qj6s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fTN8BX5qj6s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fTN8BX5qj6s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-08-07T18:32:53.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "IL5NPtUK0l-QvGYRENn3YV5iweY",
+    "id": { "kind": "youtube#video", "videoId": "cpzowDDJj24" },
+    "snippet": {
+      "publishedAt": "2023-07-18T22:45:48Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "The BETH Stack: Build Hypermedia-Driven Web Apps with Great DX and Performance",
+      "description": "An opinionated way to build web apps in 2023 ------------- LIVE SITE (down rn because I needed the database for another project ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cpzowDDJj24/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cpzowDDJj24/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cpzowDDJj24/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-07-18T22:45:48.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "Pm9oNv0yHT0uc_QrISs-k1aHlSQ",
+    "id": { "kind": "youtube#video", "videoId": "4ARWCmnjO0w" },
+    "snippet": {
+      "publishedAt": "2023-07-15T06:48:46Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Effect: Typescript That Scales",
+      "description": "YOU ARE FREE TO REACT TO THIS VIDEO ------------------ Effect Docs: https://effect.website Effect Discord: ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4ARWCmnjO0w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4ARWCmnjO0w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4ARWCmnjO0w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-07-15T06:48:46.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "3-rQGtnJuWpE1Dz7t8TmEBf_MxM",
+    "id": { "kind": "youtube#video", "videoId": "SloZE4i4Zfk" },
+    "snippet": {
+      "publishedAt": "2023-07-08T01:03:07Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Effect: Next-Generation Typescript",
+      "description": "YOU ARE FREE TO REACT TO THIS VIDEO ------------------ Effect Docs: https://effect.website Effect Discord: ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SloZE4i4Zfk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SloZE4i4Zfk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SloZE4i4Zfk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2023-07-08T01:03:07.000Z"
+    },
+    "external": false
+  }
+]

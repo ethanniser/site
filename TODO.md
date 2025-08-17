@@ -4,7 +4,7 @@
   - probably just move to a json content collection tbh
   - maybe make two col square card grid?
   - inspo: https://www.shel.win/projects
-  https://nerdy.dev/
+    https://nerdy.dev/
 - [ ] add twoslash highlighting
   - [ ] write blog post on how after bc its hard and no one has
 - [ ] "external" page for links to other sites

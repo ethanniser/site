@@ -43,7 +43,7 @@ struct register_info {
 consteval register_info all_registers[] = { ... };
 ```
 
-As I mentioned our end goal is to have a single array (ideally computed at compile time) containing a `register_info` struct for all 125 registers we want to represent. 
+As I mentioned our end goal is to have a single array (ideally computed at compile time) containing a `register_info` struct for all 125 registers we want to represent.
 
 Keep in mind there are 10 different "types" of registers we work with all of which have their own pattern for computing these info values.
 
@@ -151,7 +151,6 @@ This exact API is possible through metaprogramming- so let's see what implementi
 ## C++ X-Macros
 
 X-macros take advantage of the ability to dynamic define, undef and redefine macros in C/C++.
-
 
 We start by defining all of our data using a macro we haven't yet defined. Then, anywhere we want to use that data, we can define what the macro evaluates to based on what data is needed and in what format.
 
@@ -293,15 +292,15 @@ And all of the other macros used in the "objective" snippet from earlier are sim
 #define DEFINE_GPR_32(name,super) \
     DEFINE_REGISTER(name, -1, 4, GPR_OFFSET(super),\
      register_type::sub_gpr, register_format::uint)
-     
+
 #define DEFINE_GPR_16(name,super) \
     DEFINE_REGISTER(name, -1, 2, GPR_OFFSET(super),\
      register_type::sub_gpr, register_format::uint)
-     
+
 #define DEFINE_GPR_8H(name,super) \
  DEFINE_REGISTER(name, -1, 1, GPR_OFFSET(super) + 1,\
      register_type::sub_gpr, register_format::uint)
-     
+
 #define DEFINE_GPR_8L(name,super) \
     DEFINE_REGISTER(name, -1, 1, GPR_OFFSET(super),\
 
@@ -376,13 +375,13 @@ fn gpr_32(name: []const u8, super_field: []const u8) RegisterDefinition {
     };
 }
 fn gpr_16(name: []const u8, super_field: []const u8) RegisterDefinition {
-    // ... 
+    // ...
 }
 fn gpr_8h(name: []const u8, super_field: []const u8) RegisterDefinition {
-    // ... 
+    // ...
 }
 fn gpr_8l(name: []const u8, super_field: []const u8) RegisterDefinition {
-    // ... 
+    // ...
 }
 fn fpr(
     name: []const u8,
@@ -428,26 +427,26 @@ Next, we create an array using these helper functions of all these definitions:
 ```zig
 pub const registerDefinitions = [_]RegisterDefinition{
     .gpr_64("rax", 0),
-    // ... 
+    // ...
     .gpr_32("eax", "rax"),
-    // ... 
+    // ...
     .gpr_16("ax", "rax"),
-    // ... 
+    // ...
     .gpr_8h("ah", "rax"),
-    // ... 
+    // ...
     .gpr_8l("al", "rax"),
-    // ... 
+    // ...
     .fpr("fcw", 65, "cwd"),
-    // ... 
+    // ...
     .fp_st(1),
-    // ... 
+    // ...
     .fp_mm(6),
-    // ... 
+    // ...
     .fp_xmm(15),
 };
 ```
 
-Now everything we've done so far is totally possible in C++ with `consteval`/`constinit`. The key difference is the next part, defining the enum of all of the register names. In C++ this is not possible with `consteval`/`constinit` so you are forced to use macros. But in Zig things are a bit different. 
+Now everything we've done so far is totally possible in C++ with `consteval`/`constinit`. The key difference is the next part, defining the enum of all of the register names. In C++ this is not possible with `consteval`/`constinit` so you are forced to use macros. But in Zig things are a bit different.
 
 Comptime gives us full access to type information- allowing us to inspect types and even construction them using zig code.
 
@@ -563,11 +562,11 @@ I'll start this section by identifying all of the major flaws with C/C++ macros:
 - Untyped
 - Very difficult to debug
 - Horrible compiler error messages if you mess up syntax somewhere
-- Only have access to a very constrained set of operations on macro-level *stuff* (symbols/types), basically just symbol concatination and stringification
+- Only have access to a very constrained set of operations on macro-level _stuff_ (symbols/types), basically just symbol concatination and stringification
 
 On the other hand with Zig's comptime:
 
-- It's *just zig*, meaning you can do basically anything (that doesn't involve side effects)
+- It's _just zig_, meaning you can do basically anything (that doesn't involve side effects)
 - Fully typed (again it's just zig)
 - Great error messages (the same as when writing normal code)
 - Simple `printf` style debugging with `@compileLog`
