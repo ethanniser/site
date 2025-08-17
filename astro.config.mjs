@@ -9,11 +9,12 @@ import react from "@astrojs/react";
 import reunmediaogImages from "@reunmedia/astro-og-images";
 import { readFile } from "node:fs/promises";
 import expressiveCode from "astro-expressive-code";
+import remarkGfm from "remark-gfm";
 
 export default defineConfig({
   site: "https://ethanniser.dev",
   markdown: {
-    remarkPlugins: [remarkToc],
+    remarkPlugins: [remarkToc, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [

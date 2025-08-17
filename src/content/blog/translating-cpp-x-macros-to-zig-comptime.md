@@ -6,7 +6,9 @@ tags: ["zig", "c++", "metaprogramming"]
 
 I'm currently going through ['Building a Debugger' by Sy Brand](https://nostarch.com/building-a-debugger) but implementing it in [Zig](https://ziglang.org/) as opposed to the C++ the book is in. So far this has been a pretty enjoyable experience.
 
-In Chapter 5 of the book, we go through the process of defining a `RegisterInfo` data type representing information (name, size, type, memory location, etc.) for a given register. Then, instantating the ***125 instances*** of it needed to represent all of the registers on x86-64 \[1\]. This obviously is no small feat, but through the power of metaprogramming a lot of the boilerplate can be cut down.
+In Chapter 5 of the book, we go through the process of defining a `RegisterInfo` data type representing information (name, size, type, memory location, etc.) for a given register. Then, instantating the **_125 instances_** of it needed to represent all of the registers on x86-64[^1]. This obviously is no small feat, but through the power of metaprogramming a lot of the boilerplate can be cut down.
+
+[^1]: It's actually not even all of them- just the ones the book covers... man x86 is old and complex
 
 The book achieves this using the C/C++ preprocessor through a technichque called 'X-macros'. However in my Zig implementation I used one of Zig's selling point features: [comptime](https://ziglang.org/documentation/0.14.0/#comptime) to achieve the same result but in a much more elegant and maintainable way (imo).
 
@@ -576,7 +578,3 @@ On the other hand with Zig's comptime:
 As soon as I saw some decently complex macro usage come up in the book, I got [super excited](https://x.com/ethanniser/status/1908263929635025348). Comptime is one of the most exciting parts about Zig and I had never used it outside small trivial examples up until this project.
 
 If your interested in checking out the full source code you can find my implementation [here](https://github.com/ethanniser/zdb/blob/a3a62081024821175b305c25f8b69d37676d443d/src/registers/info.zig) and the C++ implementation [here](https://github.com/TartanLlama/sdb/blob/369fb6b5587c931c2741a62952a3e90f5d73b50a/include/libsdb/register_info.hpp).
-
-## Footnotes
-
-1. It's actually not even all of them- just the ones the book covers... man x86 is old and complex
