@@ -29,6 +29,7 @@
     "@types/bun": "^1.2.11",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.7",
+    "@vercel/analytics": "^1.5.0",
     "astro": "5.12.8",
     "astro-expressive-code": "^0.41.2",
     "caniuse-lite": "^1.0.30001716",

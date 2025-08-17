@@ -7,6 +7,7 @@ import * as Constants from "@/lib/consts";
 import Footer from "@/components/Footer.astro";
 import HorizontalHeader from "@/components/HorizontalHeader.astro";
 import { ClientRouter } from "astro:transitions";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title?: string | undefined;
@@ -145,12 +146,8 @@ const {
       document.addEventListener("astro:after-swap", setRandomKeyword);
     </script>
 
-    <!-- Cloudflare Web Analytics -->
-    <script
-      is:inline
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "84933259d875475985c66180f81b73bf"}'></script>
+    <Analytics endpoint="/foobarbaz" />
+
     <ClientRouter />
   </head>
 
