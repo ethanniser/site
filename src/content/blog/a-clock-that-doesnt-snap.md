@@ -209,11 +209,16 @@ function InlineScript() {
 
 Another great example for this pattern is making sure that text input state doesn't get "wiped out" by hydration. This doesn't require a script tag, instead just initializing the state with the value from the DOM.
 
+![Two text inputs both typed into prehydration, after hydration one is wiped empty, while the other is preserved](../../assets/blog/a-clock-that-doesnt-snap/gif-3.gif)
+
 ```tsx
 function Input() {
   const [value, setValue] = useState(() => {
     if (typeof window !== "undefined") {
-      return document.getElementById("input")?.value || "";
+      const input = document.getElementById("input");
+      if (input && input instanceof HTMLInputElement) {
+        return input.value;
+      }
     }
     return "";
   });
@@ -242,7 +247,7 @@ But for now I think this solution is _fine_. I've had to pull it out actually a 
 
 But play around with this stuff yourself!
 
-Here's some links to the clock example in the GIF and the code snippets:
+Here's some links to the examples from this post:
 
 - [preview](https://hydration-test.vercel.app/)
 - [git](https://github.com/ethanniser/hydration-test) (the `window.__INITIAL_TIME__` stuff is on the `no-hydration-warning` branch)
