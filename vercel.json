@@ -2,8 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/foobarbaz/:match*",
-      "destination": "/_vercel/insights/:match*"
+      "source": "/thisisnothing/:match*",
+      "destination": "https://ethanniser.dev/_vercel/insights/:match*"
     }
   ]
 }
