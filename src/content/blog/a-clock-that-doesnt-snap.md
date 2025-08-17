@@ -1,7 +1,7 @@
 ---
 title: "A Clock That Doesn't Snap"
 description: "Committing prehydration crimes"
-pubDate: "Aug 16 2025"
+pubDate: "Aug 17 2025"
 tags: ["react"]
 ---
 
