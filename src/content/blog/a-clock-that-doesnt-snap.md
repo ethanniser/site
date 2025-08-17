@@ -32,7 +32,7 @@ The thing is we _really_ want to statically generate pages! Serving from a CDN i
 
 But let's say we are willing to give that up and SSR the page. This will address this problem in most cases, but actually not in all! SSR has access to request-time data (full URL, headers, cookies, etc) but not client-only data (local/session storage, browser information, etc)! So we are still out of luck.
 
-You could get accept this, and maybe you don't mind the little flicker of the empty state- but dammit I do! I want my CDN cached TTFB and I _need_ that perfect first paint with **no flickers**.
+You could accept this, and maybe you don't mind the little flicker of the empty state- but dammit I do! I want my CDN cached TTFB and I _need_ that perfect first paint with **no flickers**.
 
 !["You must choose: A good FCP or perfect first paints" - Sun Tzu, The Art of JavaScript (probably)](../../assets/blog/a-clock-that-doesnt-snap/image-1.png)
 _No JavaScript Sun Tzu! I won't accept it._
