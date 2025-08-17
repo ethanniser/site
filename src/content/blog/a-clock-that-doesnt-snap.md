@@ -12,7 +12,7 @@ This looks bad, let's fix it!
 
 Hydration is one of those things you wish you never had to think about but it always manages to bite you right when you least expect it.
 
-I present the statically prerendered then hydrated clock, ever present on many a developer blog[^1]:
+I present the statically prerendered then hydrated clock, ever present on many developer blogs[^1]:
 
 [^1]: This example is from my good friend Charlie's [site](https://charliemeyer.xyz/). It has since been fixed with the technique from this post!
 
