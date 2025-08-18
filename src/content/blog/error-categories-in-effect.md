@@ -22,9 +22,7 @@ const foo = Effect.gen(function* () {
 });
 
 const handled = foo.pipe(
-  Effect.catchTag("FooError", (e) =>
-    Effect.log("recovered", e.bar),
-  ),
+  Effect.catchTag("FooError", (e) => Effect.log("recovered", e.bar)),
 );
 ```
 
@@ -194,24 +192,15 @@ const BMixin = <T extends Class<{ x: number }>>(Base: T) =>
   };
 
 // ---cut---
-class FooError extends Schema.TaggedError<FooError>()(
-  "FooError",
-  {},
-) {}
+class FooError extends Schema.TaggedError<FooError>()("FooError", {}) {}
 
-class BarError extends Schema.TaggedError<BarError>()(
-  "BarError",
-  {
-    x: Schema.Number,
-  },
-).pipe(AMixin) {}
+class BarError extends Schema.TaggedError<BarError>()("BarError", {
+  x: Schema.Number,
+}).pipe(AMixin) {}
 
-class BazError extends Schema.TaggedError<BazError>()(
-  "BazError",
-  {
-    x: Schema.Number,
-  },
-).pipe(AMixin, BMixin) {}
+class BazError extends Schema.TaggedError<BazError>()("BazError", {
+  x: Schema.Number,
+}).pipe(AMixin, BMixin) {}
 ```
 
 Next, we can add some utility functions to make working with these categories just as nice as working with `_tag`s.
@@ -267,24 +256,15 @@ const BMixin = <T extends Class<{ x: number }>>(Base: T) =>
   };
 
 // ---cut---
-class FooError extends Schema.TaggedError<FooError>()(
-  "FooError",
-  {},
-) {}
+class FooError extends Schema.TaggedError<FooError>()("FooError", {}) {}
 
-class BarError extends Schema.TaggedError<BarError>()(
-  "BarError",
-  {
-    x: Schema.Number,
-  },
-).pipe(AMixin) {}
+class BarError extends Schema.TaggedError<BarError>()("BarError", {
+  x: Schema.Number,
+}).pipe(AMixin) {}
 
-class BazError extends Schema.TaggedError<BazError>()(
-  "BazError",
-  {
-    x: Schema.Number,
-  },
-).pipe(AMixin, BMixin) {}
+class BazError extends Schema.TaggedError<BazError>()("BazError", {
+  x: Schema.Number,
+}).pipe(AMixin, BMixin) {}
 
 // ---cut---
 const catchCategory =
@@ -303,22 +283,17 @@ const catchCategory =
   > =>
     Effect.catchIf(effect, hasCategory(category), f) as any;
 
-declare const example: Effect.Effect<
-  void,
-  FooError | BarError | BazError
->;
+declare const example: Effect.Effect<void, FooError | BarError | BazError>;
 
 //  only FooError left (A's removed)
 const test1 = example.pipe(
+  //     ^?
   catchCategory(CategoryA, (error) => Effect.void),
 );
-//     ^?
 
 // example of using added behavior
 const test2 = example.pipe(
-  catchCategory(CategoryB, (error) =>
-    Effect.log(error.double()),
-  ),
+  catchCategory(CategoryB, (error) => Effect.log(error.double())),
 );
 ```
 
