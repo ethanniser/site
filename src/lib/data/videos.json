@@ -1,13 +1,45 @@
 [
   {
     "kind": "youtube#searchResult",
-    "etag": "F5ik1MgBXjbVGwn0vyAA4xS_uxE",
+    "etag": "gv6OabYGJT-vg3AVA4jkFNi5XzY",
+    "id": { "kind": "youtube#video", "videoId": "wski7bnpW8Y" },
+    "snippet": {
+      "publishedAt": "2025-08-19T04:27:53Z",
+      "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
+      "title": "Every website has this problem (here&#39;s how to fix it)",
+      "description": "Thanks for watching Blog post: https://ethanniser.dev/blog/a-clock-that-doesnt-snap Preview: https://hydration-test.vercel.app/ ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wski7bnpW8Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wski7bnpW8Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wski7bnpW8Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Ethan Niser",
+      "liveBroadcastContent": "none",
+      "publishTime": "2025-08-19T04:27:53.000Z"
+    },
+    "external": false
+  },
+  {
+    "kind": "youtube#searchResult",
+    "etag": "glo7IQ7BkkQVue6wdkBdJvWKQhs",
     "id": { "kind": "youtube#video", "videoId": "NGBijq6cdfc" },
     "snippet": {
       "publishedAt": "2025-08-04T02:02:02Z",
       "channelId": "UC1OBuTOu68SmE_8LfquGbSA",
       "title": "Why I stopped using react query (and you might soon too)",
-      "description": "Thanks for watching Effect: https://effect.website/ Effect rx: https://github.com/tim-smart/effect-rx Effect optimistic updates demo: ...",
+      "description": "Thanks for watching FYI: EFFECT RX HAS BEEN RENAMED TO EFFECT ATOM SINCE THIS VIDEO WAS POSTED Effect: ...",
       "thumbnails": {
         "default": {
           "url": "https://i.ytimg.com/vi/NGBijq6cdfc/default.jpg",
@@ -65,7 +97,7 @@
   },
   {
     "kind": "youtube#searchResult",
-    "etag": "K8374KukRwVxE_znQt1CoRdy98E",
+    "etag": "wI5rC_PzNzYMeUJHVZ1ucevfqa0",
     "id": { "kind": "youtube#video", "videoId": "vtotu8p9DWw" },
     "snippet": {
       "publishedAt": "2024-11-02T22:02:08Z",
@@ -161,7 +193,7 @@
   },
   {
     "kind": "youtube#searchResult",
-    "etag": "myNX0qkF4aAZVHFBfRYEBdChSC4",
+    "etag": "Qs9uoK-oZHA_riHvT54J3Ih7GeE",
     "id": { "kind": "youtube#video", "videoId": "NZpPMlSAez0" },
     "snippet": {
       "publishedAt": "2023-09-28T16:00:07Z",
@@ -193,7 +225,7 @@
   },
   {
     "kind": "youtube#searchResult",
-    "etag": "DsM34iDuAYtEYoH1XML0tqrT94Q",
+    "etag": "ReE_S54QK_IIuVJoUJMP-CKOemE",
     "id": { "kind": "youtube#video", "videoId": "aDYYn9R-JyE" },
     "snippet": {
       "publishedAt": "2023-09-10T21:17:11Z",

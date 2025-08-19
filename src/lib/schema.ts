@@ -8,7 +8,14 @@ export const ytVideoItem = z.object({
   snippet: z.object({
     publishedAt: z.string(),
     channelId: z.string(),
-    title: z.string(),
+    title: z.string().transform((s) =>
+      s
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'"),
+    ),
     description: z.string(),
     thumbnails: z.object({
       default: z.object({
