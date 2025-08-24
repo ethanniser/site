@@ -2,7 +2,7 @@
 title: "Effect Best Practices"
 description: "Some tips to write good Effect code"
 pubDate: "Aug 02 2024"
-updatedDate: "Sep 18 2024"
+updatedDate: "Aug 23 2025"
 tags: ["effect"]
 ---
 
@@ -115,6 +115,12 @@ The bug here is not wrapping `Option.none()` in `Effect.succeed`. You won't get 
 ### By default, RPC transport errors are considered defects
 
 This may not always be what you want. The alternative is either `catchAllDefect` which is not the most safe and could catch some other non-transport error, or writing your own resolver that handle transport errors differently.
+
+### Don't use `Schema.Unknown`
+
+Defining a `cause: unknown` field is a common pattern (suggested in this very document) for creating error types in Effect. This pattern should **not** however be applied to schema errors. Consider the semantics- the whole point of a schema is you have a strict definition of the the input and output types of your program. This is especially important when using Effect's ecosystem libraries like HttpApi or RPC. By using `Schema.Unknown` you basically completely opt out of this strictness and open yourself up to sending literally _whatever_ is in the cause field over the wire. This could include sensitive internal server information that you now expose to users without realizing it. 
+
+Use `Data.TaggedError` with `cause: unknown` for internal, in-memory errors. Use `Schema.TaggedError` **without** `Schema.Unknown` to strictly define the possible error outputs of your APIs. Then simply map from your internal errors to these specificed external errors (you are likely already doing some variant of this).
 
 ## Snippets
 
