@@ -1,15 +1,9 @@
-- [ ] move to redis on coolify so builds can share datacache too
 - Fix internal link flash on page change on mobile
-- [ ] tags for projects page
-  - probably just move to a json content collection tbh
-  - maybe make two col square card grid?
-  - inspo: https://www.shel.win/projects
-    https://nerdy.dev/
-- [ ] add twoslash highlighting
-  - [ ] write blog post on how after bc its hard and no one has
+- move to 1 single "feed" with cards with a "_tag" and tags
+  - inspo: https://nerdy.dev/
+  - /blog just becomes sort by _tag=blog
 - [ ] "external" page for links to other sites
   - external blogs
   - [x] external videos (done but jank)
-  - ...
 - [ ] move videos to a json content collection
 - add cv?
