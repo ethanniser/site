@@ -72,7 +72,7 @@ Effect’s non-zero upfront cost must not be ignored. While its disclosure of _c
 
 [^4]: Effect has _a lot_ of APIs. Most of them are isolated utility modules or functions you can choose to bring in when they solve a problem you have. The core API surface of Effect is arguably under 20 core functions, with the rest being derivatives of them.
 
-Remember though, this is _difficulty_ and not _complexity_. **Effect is not hard mode**. Its initial _difficulty_ will wane with exposure and use.
+Remember though, this is _difficulty_ and not _complexity_. **Effect is not hard mode**. Its initial _difficulty_ will wane with exposure and use, while the _complexity_ it eases will not.
 
 At the end of the day, Effect is just an NPM package you install and import, but really it's more than that, [Effect is a language](https://ethanniser.dev/blog/the-truth-about-effect). At first, it asks you to learn a new vocabulary. That can feel uncomfortable, even _difficult_. But the payoff is that once you become fluent, you gain a powerful shorthand for handling the hardest parts of software: errors, concurrency, resource management, observability, and testability. Effect doesn’t eliminate the _complexity_ of the world — it gives you the tools to master it.
 
