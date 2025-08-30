@@ -1,5 +1,5 @@
 ---
-title: "Effect is not hard mode"
+title: "The difficulty of complexity"
 pubDate: "Aug 29 2025"
 tags: ["effect"]
 ---
@@ -8,15 +8,17 @@ Writing quality software is _complex_, and often _difficult_.
 
 There’s an important distinction there. _Complexity_ is an inherent state of being. Even once understood, _complex_ things remain _complex_. But _difficulty_ is a temporary description of some relation to a task. Once mastered, _difficulty_ melts away.
 
-Writing quality software is _complex_. While many (especially with the rise of AI) are willing to sacrifice quality, I am not. This means we must consider every possible state of our programs, and regularly assert and test our assumptions. Our code must be resilient to errors, gracefully handle them and retry operations where needed. We must effectively utilize concurrency, synchronize between tasks, propagate interruptions, and never leak resources. Our code must be designed in a way that is testable and reusable, while still maintainable and understandable. At runtime, our code must be observable so that when things go wrong so we can precisely identify errors or slowdowns.
+Writing quality software is _complex_. While many (especially with the rise of AI) are willing to sacrifice quality, I am not. This means we must consider every possible state, and regularly assert and test our assumptions. Our code must be resilient to errors, gracefully handle them and retry where needed. We must effectively utilize concurrency, synchronize between tasks, propagate interruptions, and never leak resources. Our code must be designed in a way that is testable and reusable, while still maintainable and understandable. At runtime, our code must be observable so that when things go wrong so we can precisely identify errors or slowdowns.
 
 Talk about _complexity_ right? It makes sense why surmounting all of this would be _difficult_, so much so that many applications choose to simply not try. And the ones that do quickly find themselves in a web of poorly architected abstractions that ultimately fail to deliver on any of the end goals.
 
-![Child smirking as house in on fire in the background](../../assets/blog/effect-is-not-hard-mode/image-1.png)
+![Child smirking as house in on fire in the background](../../assets/blog/the-difficulty-of-complexity/image-1.png)
 
 _just one more NPM package please just one more I swear it will finally solve all of our problems_
 
-But things don’t have to be this way. Consider other highly _complex_ things that are not _difficult_: Cutting edge research papers can be less than 10 pages due to the use of sophisticated domain-specific academic language known by most readers. Optimizing vector operations for every kind of GPU is as easy as `model.to(device)`. Given the right abstraction properly learned, _complex_ things don’t stay _difficult_.
+But things don’t have to be this way. Consider other highly _complex_ things that are not _difficult_: Cutting edge research papers can be less than 10 pages due to the use of sophisticated domain-specific academic language known by most readers. Optimizing vector operations for every kind of GPU is as easy as `model.to(device)`.
+
+Given the right abstraction properly learned, _complex_ things don’t stay _difficult_.
 
 Back to software.
 
@@ -32,7 +34,7 @@ This playbook is not new.
 
 React entered into a world full of imperative, manual DOM manipulation[^2] and proudly claimed it had a better way. The component was a new reusable primitive, with simple, declarative reactivity. At the same time however, it was _weird_\! A new mental model, new syntax, new apis, and a framework that compelled you with its compounding benefits to use it more and more until it consumed your entire app. With JSX, it also asked you to put HTML in your JavaScript and run it through a Babel plugin[^3]\! Unsurprisingly, many people did not exactly want to jump right in.
 
-![Tweet from @shapeshed - May 30, 2013: "looking at React facebook.github.io/react/. JSX bringing XML syntax to JavaScript. Err.. no thanks."](../../assets/blog/effect-is-not-hard-mode/image-2.png)
+![Tweet from @shapeshed - May 30, 2013: "looking at React facebook.github.io/react/. JSX bringing XML syntax to JavaScript. Err.. no thanks."](../../assets/blog/the-difficulty-of-complexity/image-2.png)
 
 [^2]: This is mainly referring to JQuery, but I am aware Angular, Ember, Backbone, Knockout and more existed at the time.
 
@@ -42,17 +44,19 @@ But a few optimistic folks did. They worked out some kinks, iterated on apis, op
 
 This is further evident in the massive rise of the "AI Vibe Coding App Builder" market. v0, Lovable, Bolt and Replit all use React when not prompted to choose any particular framework. This is partly because there is lots of training data on React, but also because declarative reactivity plus reusable components and hooks is great for AIs for the _same_ reasons it's great for humans: it reduces _difficulty_ (reactivity, templating, code reusability) when doing _complex_ things (writing web apps).
 
-Consider another great example here: Convex. Convex is a unique TypeScript-based application database with a built-in sync engine. It's quite niche still and AIs have very little training data on it. But despite that disadvantage, Convex's first party AI app builder, Chef, is able to build fullstack applications with an accuracy and quality bar that quite literally [no one else is able to](https://youtu.be/hZeprLzd6xM?si=uFNqyNKoEYqXEMDI). It’s the same playbook: take what was imperative and make it declarative. High level user code executed by a _complex_ internal runtime. Pay the upfront learning cost and get exponential benefits over time. Once again, Convex is great for AIs for the same reasons it's great for humans: it doesn’t make the _complex_ problems of data synchronization, invalidation, and front-to-back wiring disappear, but it makes them so easy by default developers stop needing to constantly think about them.
+Consider another great example here: [Convex](https://www.convex.dev/). Convex is a unique TypeScript-based application database with a built-in sync engine. It's quite niche still and AIs have very little training data on it. But despite that disadvantage, Convex's first party AI app builder, Chef, is able to build fullstack applications with an accuracy and quality bar that quite literally [no one else is able to](https://youtu.be/hZeprLzd6xM?si=uFNqyNKoEYqXEMDI). It’s the same playbook: take what was imperative and make it declarative. High level user code executed by a _complex_ internal runtime. Pay the upfront learning cost and get exponential benefits over time. Once again, Convex is great for AIs for the same reasons it's great for humans: it doesn’t make the _complex_ problems of data synchronization, invalidation, and front-to-back wiring disappear, but it makes them so easy by default developers stop needing to constantly think about them.
 
 ---
 
-That “hypothetical new primitive” from earlier is actually not hypothetical. It’s called [Effect](https://effect.website/) and it brings this proven playbook to likely the biggest developer market in existence: general TypeScript application development.
+That “hypothetical new primitive” from earlier is actually not hypothetical. It’s called [Effect](https://effect.website/), and it brings this proven playbook to likely the biggest developer market in existence: general TypeScript application development.
 
 The parallels are striking:
 
 - A new primitive, the `Effect` type
 - Users write a declarative DSL executed by a _complex_ internal runtime
 - Previously _difficult_ things become easy once an upfront “buy-in” cost is paid
+
+![Effect star graph, going from 0 in 2020 to over 10k in 2025](../../assets/blog/the-difficulty-of-complexity/image-3.png)
 
 _Success, Errors, Requirements. Everything you need to know is in just 1 type_
 
@@ -62,26 +66,24 @@ Even more importantly for context-limited LLMs, it reduces the context needed to
 
 Consider too that this is the absolute worst AIs will ever be at Effect. Ecosystem implantation happens quickly and forcefully, and Effect’s growth is extremely promising.
 
-![Effect star graph, going from 0 in 2020 to over 10k in 2025](../../assets/blog/effect-is-not-hard-mode/image-3.png)
+![A snippet of Effect code showing the 3 parameters of the Effect type](../../assets/blog/the-difficulty-of-complexity/image-4.png)
 
 Effect’s non-zero upfront cost must not be ignored. While its disclosure of _complexity_ is often overstated[^4], developers will be asked to think with a new mental model, learn new APIs, and deal with interop between existing code. Like React before it, at first Effect might seem _weird_ and scary.
 
 [^4]: Effect has _a lot_ of APIs. Most of them are isolated utility modules or functions you can choose to bring in when they solve a problem you have. The core API surface of Effect is arguably under 20 core functions, with the rest being derivatives of them.
 
-Remember though, this is _difficulty_ and not _complexity_. **Effect is not hard mode**, its initial _difficulty_ will wane with exposure and use.
+Remember though, this is _difficulty_ and not _complexity_. **Effect is not hard mode**. Its initial _difficulty_ will wane with exposure and use.
 
-At the end of the day, Effect is just an NPM package you install and import, but really it's more than that, [Effect is a language](https://ethanniser.dev/blog/the-truth-about-effect). At first, it asks you to learn a new vocabulary — a new way of writing code. That can feel unfamiliar, even _difficult_. But the payoff is that once you’ve internalized it, you gain a powerful shorthand for handling the hardest parts of software: errors, concurrency, resource management, observability, and testability.
-
-Instead of stringing together dozens of ad-hoc abstractions, you get a single, cohesive, opinionated framework that makes the _complex_ tractable. Like academic language or legal shorthand, Effect doesn’t eliminate the _complexity_ of the world — it gives you the tools to master it.
+At the end of the day, Effect is just an NPM package you install and import, but really it's more than that, [Effect is a language](https://ethanniser.dev/blog/the-truth-about-effect). At first, it asks you to learn a new vocabulary. That can feel uncomfortable, even _difficult_. But the payoff is that once you become fluent, you gain a powerful shorthand for handling the hardest parts of software: errors, concurrency, resource management, observability, and testability. Effect doesn’t eliminate the _complexity_ of the world — it gives you the tools to master it.
 
 ---
 
 Every so often something new appears with big promises. It's different from the status quo in unique ways. While early adopters swear by it, wider adoption is controversial. It's hard to wrap your head around if you stay tied to old ways of thinking, but a novice who sees it for the first time thinks it's just the norm.
 
-Often the criticism is warranted.This is okay\! No technology is above fair critique, no matter how cool, and we must be ready to acknowledge that and start looking for better solutions when the time is right.
+Often the criticism is warranted. This is okay! No technology is above fair critique, no matter how cool, and we must be ready to acknowledge that and start looking for better solutions when the time is right.
 
 But sometimes that new thing really is special. It provides meaningful, enduring value, and is a launchpad for a whole new world of things built on top.
 
 Developers will always ask for faster horses — one more package, one more abstraction. Effect is the car: a fundamentally new approach, and we're only beginning to see its effects.
 
-![A white butterfly with waves rippling away from it](../../assets/blog/effect-is-not-hard-mode/image-4.png)
+![A white butterfly with waves rippling away from it](../../assets/blog/the-difficulty-of-complexity/image-5.png)
