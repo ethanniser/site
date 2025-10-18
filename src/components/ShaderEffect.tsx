@@ -81,8 +81,8 @@ void main() {
 
   float lightDotSizePixels = 4.0;
   float lightSpacingPixels = 10.0;
-  float darkDotSizePixels = 2.0;
-  float darkSpacingPixels = 4.0;
+  float darkDotSizePixels = 3.0;
+  float darkSpacingPixels = 6.0;
   float dotSizePixels = mix(lightDotSizePixels, darkDotSizePixels, u_darkMode);
   float spacingPixels = mix(lightSpacingPixels, darkSpacingPixels, u_darkMode);
 
@@ -299,7 +299,7 @@ export default function ShaderEffect({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = (window.devicePixelRatio || 1) * 2;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
 
@@ -500,12 +500,11 @@ export default function ShaderEffect({
     <canvas
       ref={canvasRef}
       className={className}
-      width={width}
-      height={height}
       style={{
         backgroundColor: "transparent",
         width: `${width}px`,
         height: `${height}px`,
+        imageRendering: "crisp-edges",
       }}
     />
   );

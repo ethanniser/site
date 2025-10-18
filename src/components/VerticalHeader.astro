@@ -12,6 +12,13 @@ const { keyword } = Astro.props;
 ---
 
 <nav class="flex flex-col items-start gap-y-2">
+  <ShaderEffect
+    client:load
+    imageSrc="/images/persona_headshot.jpeg"
+    width={180}
+    height={180}
+  />
+  <div class="py-2"></div>
   <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
   <h2 class="text-center italic" id="v-header-keyword">{keyword}</h2>
   <script is:inline>
@@ -29,11 +36,4 @@ const { keyword } = Astro.props;
   <HeaderExternalLink href={Constants.SUBSTACK_LINK} label="Substack" />
   <HeaderExternalLink href={Constants.EMAIL_LINK} label="Email" />
   <HeaderExternalLink href="/rss.xml" label="RSS" />
-  <div class="py-2"></div>
-  <ShaderEffect
-    client:load
-    imageSrc="/images/persona_headshot.jpeg"
-    width={230}
-    height={230}
-  />
 </nav>
