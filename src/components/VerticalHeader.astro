@@ -2,6 +2,7 @@
 import * as Constants from "@/lib/consts";
 import HeaderExternalLink from "./HeaderExternalLink.astro";
 import HeaderInternalLink from "./HeaderInternalLink.astro";
+import ShaderEffect from "./ShaderEffect";
 
 type Props = {
   keyword: Constants.JS_KEYWORD;
@@ -28,4 +29,11 @@ const { keyword } = Astro.props;
   <HeaderExternalLink href={Constants.SUBSTACK_LINK} label="Substack" />
   <HeaderExternalLink href={Constants.EMAIL_LINK} label="Email" />
   <HeaderExternalLink href="/rss.xml" label="RSS" />
+  <div class="py-2"></div>
+  <ShaderEffect
+    client:load
+    imageSrc="/images/persona_headshot.jpeg"
+    width={230}
+    height={230}
+  />
 </nav>
