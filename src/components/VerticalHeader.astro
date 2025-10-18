@@ -18,13 +18,13 @@ const { keyword } = Astro.props;
     width={180}
     height={180}
   />
-  <div class="py-2"></div>
+  <div class="py-1"></div>
   <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
   <h2 class="text-center italic" id="v-header-keyword">{keyword}</h2>
   <script is:inline>
     document.getElementById("v-header-keyword").innerHTML = randomKeyword;
   </script>
-  <div class="py-1"></div>
+  <div class="py-2"></div>
   <HeaderInternalLink href="/blog" label="Blog" />
   <HeaderInternalLink href="/videos" label="Videos" />
   <HeaderInternalLink href="/projects" label="Projects" />
