@@ -2,6 +2,7 @@
 import * as Constants from "@/lib/consts";
 import HeaderExternalLink from "./HeaderExternalLink.astro";
 import HeaderInternalLink from "./HeaderInternalLink.astro";
+import ShaderEffect from "./ShaderEffect";
 
 type Props = {
   keyword: Constants.JS_KEYWORD;
@@ -11,6 +12,13 @@ const { keyword } = Astro.props;
 ---
 
 <nav class="flex flex-col items-start gap-y-2">
+  <ShaderEffect
+    client:load
+    imageSrc="/images/persona_headshot.jpeg"
+    width={180}
+    height={180}
+  />
+  <div class="py-2"></div>
   <a href="/"><h1 class="text-2xl font-bold">{Constants.SITE_TITLE}</h1></a>
   <h2 class="text-center italic" id="v-header-keyword">{keyword}</h2>
   <script is:inline>
