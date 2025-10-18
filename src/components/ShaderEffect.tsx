@@ -81,8 +81,8 @@ void main() {
 
   float lightDotSizePixels = 4.0;
   float lightSpacingPixels = 10.0;
-  float darkDotSizePixels = 3.0;
-  float darkSpacingPixels = 6.0;
+  float darkDotSizePixels = 3.5;
+  float darkSpacingPixels = 4.5;
   float dotSizePixels = mix(lightDotSizePixels, darkDotSizePixels, u_darkMode);
   float spacingPixels = mix(lightSpacingPixels, darkSpacingPixels, u_darkMode);
 
