@@ -64,7 +64,6 @@ precision mediump float;
 uniform sampler2D u_texture;
 uniform vec2 u_resolution;
 uniform float u_time;
-uniform float u_darkMode;
 uniform vec2 u_mouseVelocity;
 uniform float u_mouseActive;
 uniform vec2 u_laggedMouse;
@@ -79,12 +78,8 @@ void main() {
   vec2 pixelCoord = v_texCoord * u_resolution;
   vec2 mousePixel = u_laggedMouse * u_resolution;
 
-  float lightDotSizePixels = 4.0;
-  float lightSpacingPixels = 10.0;
-  float darkDotSizePixels = 3.5;
-  float darkSpacingPixels = 4.5;
-  float dotSizePixels = mix(lightDotSizePixels, darkDotSizePixels, u_darkMode);
-  float spacingPixels = mix(lightSpacingPixels, darkSpacingPixels, u_darkMode);
+  float dotSizePixels = 3.5;
+  float spacingPixels = 4.5;
 
   vec2 gridCount = floor(u_resolution / spacingPixels);
   vec2 gridOffset = (u_resolution - gridCount * spacingPixels) * 0.5;
@@ -104,9 +99,7 @@ void main() {
 
   float brightness = (gridColor.r + gridColor.g + gridColor.b) / 3.0;
 
-  float lightAdjustedDotSize = dotSizePixels * smoothstep(0.2, 0.8, (1.0 - brightness));
-  float darkAdjustedDotSize = dotSizePixels * smoothstep(0.15, 1.0, (1.0 - brightness));
-  float baseDotSize = mix(lightAdjustedDotSize, darkAdjustedDotSize, u_darkMode);
+  float baseDotSize = dotSizePixels * smoothstep(0.15, 1.0, (1.0 - brightness));
 
   float adjustedDotSize = baseDotSize;
 
@@ -190,9 +183,7 @@ void main() {
 
   vec4 backgroundColor = vec4(0.0, 0.0, 0.0, 0.0);
 
-  vec4 lightModeColor = vec4(1.0, 1.0, 1.0, 1.0);
-  vec4 darkModeColor = vec4(0.0, 0.0, 0.0, 1.0);
-  vec4 dotColor = mix(lightModeColor, darkModeColor, u_darkMode);
+  vec4 dotColor = vec4(0.0, 0.0, 0.0, 1.0);
 
   vec4 finalColor = vec4(dotColor.rgb * circle, circle);
 
@@ -328,7 +319,6 @@ export default function ShaderEffect({
     const texCoordLocation = gl.getAttribLocation(program, "a_texCoord");
     const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
     const timeLocation = gl.getUniformLocation(program, "u_time");
-    const darkModeLocation = gl.getUniformLocation(program, "u_darkMode");
     const textureLocation = gl.getUniformLocation(program, "u_texture");
     const mouseVelocityLocation = gl.getUniformLocation(
       program,
@@ -462,7 +452,6 @@ export default function ShaderEffect({
       // Set uniforms
       gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
       gl.uniform1f(timeLocation, time * 0.001);
-      gl.uniform1f(darkModeLocation, 1);
       gl.uniform2f(
         mouseVelocityLocation,
         velocityRef.current.x,
