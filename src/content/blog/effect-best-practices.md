@@ -118,9 +118,17 @@ This may not always be what you want. The alternative is either `catchAllDefect`
 
 ### Don't use `Schema.Unknown`
 
-Defining a `cause: unknown` field is a common pattern (suggested in this very document) for creating error types in Effect. This pattern should **not** however be applied to schema errors. Consider the semantics- the whole point of a schema is you have a strict definition of the the input and output types of your program. This is especially important when using Effect's ecosystem libraries like HttpApi or RPC. By using `Schema.Unknown` you basically completely opt out of this strictness and open yourself up to sending literally _whatever_ is in the cause field over the wire. This could include sensitive internal server information that you now expose to users without realizing it. 
+Defining a `cause: unknown` field is a common pattern (suggested in this very document) for creating error types in Effect. This pattern should **not** however be applied to schema errors. Consider the semantics- the whole point of a schema is you have a strict definition of the the input and output types of your program. This is especially important when using Effect's ecosystem libraries like HttpApi or RPC. By using `Schema.Unknown` you basically completely opt out of this strictness and open yourself up to sending literally _whatever_ is in the cause field over the wire. This could include sensitive internal server information that you now expose to users without realizing it.
 
 Use `Data.TaggedError` with `cause: unknown` for internal, in-memory errors. Use `Schema.TaggedError` **without** `Schema.Unknown` to strictly define the possible error outputs of your APIs. Then simply map from your internal errors to these specificed external errors (you are likely already doing some variant of this).
+
+### Be _very_ careful with `Effect.uninterruptible`
+
+`Effect.uninterruptible` marks an effect (including _everthing_ inside it) as uninterruptible. This can very easily lead to you shooting yourself in the foot if there is any code that relies on interruption as part of its normal behavior (this most often comes from using `Effect.race` or `Effect.timeout`).
+
+You probably want to use `Effect.uninterruptibleMask` instead. This gives you a `restore` function that you can use to restore the interruptibility of the effect. You probably want to restore as much as possible.
+
+You also can defensive add explict `Effect.interruptible` calls to uses of `Effect.race` and `Effect.timeout` to ensure that the interruptibility is restored.
 
 ## Snippets
 
